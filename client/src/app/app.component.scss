@@ -1,0 +1,7 @@
+$screen-width: 1280px;
+$screen-height: 832px;
+.nav-logo {
+  padding: calc((12px / $screen-height) * 100%)
+    calc((50px / $screen-width) * 100%);
+  width: calc((200px / $screen-width) * 100%);
+}
