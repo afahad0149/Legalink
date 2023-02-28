@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+// importing routers
+const authRouter = require('./routers/authRouter');
+const adminRouter = require('./routers/admin');
+
 // env variables
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -16,6 +20,8 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 app.use(express.json());
+app.use(authRouter);
+app.use(adminRouter);
 
 (async function bootstrap() {
   try {
