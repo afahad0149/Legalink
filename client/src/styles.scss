@@ -28,6 +28,22 @@ $client-theme: mat.define-light-theme((
   )
 ));
 
+
+// Screen dimensions
+$screen-width: 1280px;
+$screen-height: 832px;
+
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
