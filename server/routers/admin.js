@@ -4,6 +4,6 @@ const getAdmin = require('../controllers/admin');
 
 const adminRouter = require('express').Router();
 
-adminRouter.post('/admin', authMiddleware, adminMiddleware, getAdmin);
+adminRouter.get('/admin', authMiddleware, adminMiddleware, getAdmin);
 
 module.exports = adminRouter;
