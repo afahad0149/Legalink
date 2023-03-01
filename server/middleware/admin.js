@@ -1,7 +1,8 @@
 const adminMiddleware = async (req, res, next) => {
+  // console.log(req)
   try {
-    if (req.user.userType === 'admin') {
-      req.user = user;
+    if (req.body.userType === 'admin') {
+      
       next();
     } else {
       res.status(403).send('Not an admin!');

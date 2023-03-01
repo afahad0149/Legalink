@@ -1,0 +1,20 @@
+// Screen dimensions
+$screen-width: 1280px;
+$screen-height: 832px;
+
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+.landing-page-container {
+  background-color: $bone;
+  .hero-title {
+    margin: 0;
+  }
+}

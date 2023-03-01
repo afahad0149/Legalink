@@ -1,0 +1,84 @@
+// Screen dimensions
+$screen-width: 1280px;
+$screen-height: 832px;
+
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+.registration-form-container {
+  background-color: $khaki;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .registration-graphic {
+    width: 40%;
+    .registration-graphic-img {
+      position: fixed;
+      top: 10%;
+      width: 40%;
+    }
+  }
+  .registration-form {
+    background-color: rgba(255, 255, 255, 0.534);
+    width: 60%;
+    .form-title {
+      text-align: center;
+    }
+    .client-reg-form {
+      padding: 5% 10%;
+      .name-container,
+      .contact-container {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10%;
+
+        mat-form-field {
+          min-width: 45%;
+        }
+      }
+      .password,
+      .confirm-password {
+        width: 100%;
+      }
+      .submit-btn {
+        margin-right: 10px;
+      }
+    }
+    .lawyer-reg-form {
+      padding: 5% 10%;
+      .name-container,
+      .contact-container,
+      .password-container {
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10%;
+        mat-form-field {
+          min-width: 45%;
+        }
+      }
+      .password,
+      .confirm-password,
+      .institution,
+      .license-number,
+      .lawyer-type,
+      .fees,
+      .bio {
+        width: 100%;
+      }
+      .submit-btn {
+        margin-right: 10px;
+      }
+    }
+  }
+}
