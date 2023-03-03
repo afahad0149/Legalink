@@ -8,12 +8,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { StoreModule } from '@ngrx/store';
-
+import { SliderComponent } from './components/slider/slider.component';
+import { CategoryAutocompleteComponent } from './components/category-autocomplete/category-autocomplete.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +25,8 @@ import { StoreModule } from '@ngrx/store';
     LandingPageComponent,
     RegistrationPageComponent,
     LoginPageComponent,
+    SliderComponent,
+    CategoryAutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,9 @@ import { StoreModule } from '@ngrx/store';
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSliderModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
   ],
   providers: [],

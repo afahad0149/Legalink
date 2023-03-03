@@ -3,7 +3,6 @@
     <img
       class="registration-graphic-img"
       src="../../../assets/signup_Artboard.svg"
-      alt="lady signing a form"
     />
   </div>
   <div class="registration-form">
@@ -14,31 +13,31 @@
           <div class="name-container">
             <mat-form-field class="first-name">
               <mat-label>First Name</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="last-name">
               <mat-label>Last Name</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <div class="contact-container">
             <mat-form-field class="email">
               <mat-label>Email</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="phone-number">
               <mat-label>Phone Number</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <div class="password-container">
             <mat-form-field class="password">
               <mat-label>Password</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="confirm-password">
               <mat-label>Confirm Password</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <div class="button-container">
@@ -52,52 +51,47 @@
           <div class="name-container">
             <mat-form-field class="first-name">
               <mat-label>First Name</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="last-name">
               <mat-label>Last Name</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <div class="contact-container">
             <mat-form-field class="email">
               <mat-label>Email</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="phone-number">
               <mat-label>Phone Number</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <div class="password-container">
             <mat-form-field class="password">
               <mat-label>Password</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
             <mat-form-field class="confirm-password">
               <mat-label>Confirm Password</mat-label>
-              <input matInput />
+              <input matInput required />
             </mat-form-field>
           </div>
           <mat-form-field class="institution">
             <mat-label>Legal Education institution</mat-label>
-            <input matInput />
+            <input matInput required />
           </mat-form-field>
           <mat-form-field class="license-number">
             <mat-label>License Number</mat-label>
-            <input matInput />
+            <input matInput required />
           </mat-form-field>
-          <mat-form-field class="lawyer-type">
-            <mat-label>Lawyer Type</mat-label>
-            <input matInput />
-          </mat-form-field>
-          <mat-form-field class="fees">
-            <mat-label>Consultation fees</mat-label>
-            <input matInput />
-          </mat-form-field>
+          <app-category-autocomplete></app-category-autocomplete>
+          <app-slider></app-slider>
+
           <mat-form-field class="bio">
             <mat-label>Bio</mat-label>
-            <textarea matInput></textarea>
+            <textarea matInput required></textarea>
           </mat-form-field>
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>
