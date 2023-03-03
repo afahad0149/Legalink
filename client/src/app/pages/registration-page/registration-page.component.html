@@ -9,35 +9,108 @@
     <h2 class="form-title">Join Legalink today!</h2>
     <mat-tab-group>
       <mat-tab label="Register as Client">
-        <form action="" class="client-reg-form">
+        <form
+          [formGroup]="clientRegisterForm"
+          (submit)="handleClientSubmit()"
+          class="client-reg-form"
+        >
           <div class="name-container">
             <mat-form-field class="first-name">
               <mat-label>First Name</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                formControlName="clientFirstName"
+                [required]="true"
+              />
+              <mat-error *ngIf="clientFirstName?.errors?.['required']"
+                >First name is required</mat-error
+              >
             </mat-form-field>
+
             <mat-form-field class="last-name">
               <mat-label>Last Name</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                formControlName="clientLastName"
+                [required]="true"
+              />
+              <mat-error *ngIf="clientLastName?.errors?.['required']"
+                >Last name is required</mat-error
+              >
             </mat-form-field>
           </div>
+
           <div class="contact-container">
             <mat-form-field class="email">
               <mat-label>Email</mat-label>
-              <input matInput required />
+              <input matInput formControlName="clientEmail" [required]="true" />
+              <mat-error *ngIf="clientEmail?.errors?.['clientEmail']"
+                >Email is invalid</mat-error
+              >
+              <mat-error *ngIf="clientEmail?.errors?.['required']"
+                >Email is required</mat-error
+              >
             </mat-form-field>
             <mat-form-field class="phone-number">
               <mat-label>Phone Number</mat-label>
-              <input matInput required />
+              <input matInput formControlName="clientPhone" [required]="true" />
+              <mat-error *ngIf="clientPhone?.errors?.['required']"
+                >Phone number is required</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="password-container">
             <mat-form-field class="password">
               <mat-label>Password</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                [type]="hidePass ? 'password' : 'text'"
+                formControlName="clientPassword"
+                [required]="true"
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hidePass = !hidePass"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePass"
+              >
+                <mat-icon>{{
+                  hidePass ? 'visibility_off' : 'visibility'
+                }}</mat-icon>
+              </button>
+              <mat-error *ngIf="clientPassword?.errors?.['required']"
+                >Password is required</mat-error
+              >
+              <mat-error *ngIf="clientPassword?.errors?.['minlength']"
+                >Password needs to be at least 6 characters long</mat-error
+              >
             </mat-form-field>
             <mat-form-field class="confirm-password">
               <mat-label>Confirm Password</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                [type]="hideConfirmPass ? 'password' : 'text'"
+                formControlName="clientConfirmPassword"
+                [required]="true"
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hideConfirmPass = !hideConfirmPass"
+                [attr.aria-label]="'Hide confirm password'"
+                [attr.aria-pressed]="hideConfirmPass"
+              >
+                <mat-icon>{{
+                  hideConfirmPass ? 'visibility_off' : 'visibility'
+                }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="clientConfirmPassword?.value !== clientPassword?.value"
+                >Passwords do not match</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="button-container">
@@ -46,49 +119,131 @@
           </div>
         </form>
       </mat-tab>
+
       <mat-tab label="Register as Lawyer">
-        <form action="" class="lawyer-reg-form">
+        <form
+          action=""
+          [formGroup]="clientRegisterForm"
+          (submit)="handleClientSubmit()"
+          class="lawyer-reg-form"
+        >
           <div class="name-container">
             <mat-form-field class="first-name">
               <mat-label>First Name</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                formControlName="lawyerFirstName"
+                [required]="true"
+              />
+              <mat-error *ngIf="lawyerFirstName?.errors?.['required']"
+                >First name is required</mat-error
+              >
             </mat-form-field>
             <mat-form-field class="last-name">
               <mat-label>Last Name</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                formControlName="lawyerLastName"
+                [required]="true"
+              />
+              <mat-error *ngIf="lawyerLastName?.errors?.['required']"
+                >Last name is required</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="contact-container">
             <mat-form-field class="email">
               <mat-label>Email</mat-label>
-              <input matInput required />
+              <input matInput formControlName="lawyerEmail" [required]="true" />
+              <mat-error *ngIf="lawyerEmail?.errors?.['lawyerEmail']"
+                >Email is invalid</mat-error
+              >
+              <mat-error *ngIf="lawyerEmail?.errors?.['required']"
+                >Email is required</mat-error
+              >
             </mat-form-field>
             <mat-form-field class="phone-number">
               <mat-label>Phone Number</mat-label>
-              <input matInput required />
+              <input matInput formControlName="lawyerPhone" [required]="true" />
+              <mat-error *ngIf="lawyerPhone?.errors?.['required']"
+                >Phone number is required</mat-error
+              >
             </mat-form-field>
           </div>
           <div class="password-container">
             <mat-form-field class="password">
               <mat-label>Password</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                [type]="hidePass ? 'password' : 'text'"
+                formControlName="lawyerPassword"
+                [required]="true"
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hidePass = !hidePass"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hidePass"
+              >
+                <mat-icon>{{
+                  hidePass ? 'visibility_off' : 'visibility'
+                }}</mat-icon>
+              </button>
+              <mat-error *ngIf="lawyerPassword?.errors?.['required']"
+                >Password is required</mat-error
+              >
+              <mat-error *ngIf="lawyerPassword?.errors?.['minlength']"
+                >Password needs to be at least 6 characters long</mat-error
+              >
             </mat-form-field>
             <mat-form-field class="confirm-password">
               <mat-label>Confirm Password</mat-label>
-              <input matInput required />
+              <input
+                matInput
+                [type]="hideConfirmPass ? 'password' : 'text'"
+                formControlName="lawyerConfirmPassword"
+                [required]="true"
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="hideConfirmPass = !hideConfirmPass"
+                [attr.aria-label]="'Hide confirm password'"
+                [attr.aria-pressed]="hideConfirmPass"
+              >
+                <mat-icon>{{
+                  hideConfirmPass ? 'visibility_off' : 'visibility'
+                }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="lawyerConfirmPassword?.value !== clientPassword?.value"
+                >Passwords do not match</mat-error
+              >
             </mat-form-field>
           </div>
+          <mat-form-field class="license-number">
+            <mat-label>License Number</mat-label>
+            <input
+              matInput
+              formControlName="lawyerLicenseNumber"
+              [required]="true"
+            />
+            <mat-error *ngIf="lawyerLicenseNumber?.errors?.['required']"
+              >License Number is required</mat-error
+            >
+          </mat-form-field>
+
+          <app-category-autocomplete></app-category-autocomplete>
+
+          <app-slider></app-slider>
+          
           <mat-form-field class="institution">
             <mat-label>Legal Education institution</mat-label>
             <input matInput required />
           </mat-form-field>
-          <mat-form-field class="license-number">
-            <mat-label>License Number</mat-label>
-            <input matInput required />
-          </mat-form-field>
-          <app-category-autocomplete></app-category-autocomplete>
-          <app-slider></app-slider>
-
           <mat-form-field class="bio">
             <mat-label>Bio</mat-label>
             <textarea matInput required></textarea>

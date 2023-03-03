@@ -14,7 +14,7 @@ $dark-chocolate: #3d280f;
 
 .landing-page-container {
   background-color: $bone;
-  height: 90vh;
+  height: 91vh;
   .hero-title {
     margin: 0;
     padding-top: 3%;
@@ -26,6 +26,7 @@ $dark-chocolate: #3d280f;
     padding-left: 8.5%;
   }
   .hero-body {
+    display: flex;
     .hero-info-text {
       width: 35%;
       font-size: 30px;

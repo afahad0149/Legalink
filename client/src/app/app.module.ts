@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatSliderModule,
     MatAutocompleteModule,
+    MatIconModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
   ],
