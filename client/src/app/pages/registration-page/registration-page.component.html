@@ -117,6 +117,13 @@
             <button class="submit-btn" mat-flat-button>Submit</button>
             <a class="back-btn" mat-flat-button href="/">Back</a>
           </div>
+          <div *ngIf="errorMessage.length" class="error-message">
+            {{ errorMessage }}
+          </div>
+
+          <div *ngIf="success" class="success-message">
+            New account created. <a routerLink="/login">Login</a> here.
+          </div>
         </form>
       </mat-tab>
 
@@ -239,7 +246,7 @@
           <app-category-autocomplete></app-category-autocomplete>
 
           <app-slider></app-slider>
-          
+
           <mat-form-field class="institution">
             <mat-label>Legal Education institution</mat-label>
             <input matInput required />
@@ -251,6 +258,13 @@
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>
             <a class="back-btn" mat-flat-button href="/">Back</a>
+          </div>
+          <div *ngIf="errorMessage.length" class="error-message">
+            {{ errorMessage }}
+          </div>
+
+          <div *ngIf="success" class="success-message">
+            New account created. <a routerLink="/login">Login</a> here.
           </div>
         </form>
       </mat-tab>
