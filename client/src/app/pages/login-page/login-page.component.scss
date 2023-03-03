@@ -14,18 +14,20 @@ $dark-chocolate: #3d280f;
 
 .login-form-container {
   background-color: $khaki;
+  height: 91vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  .login-graphic-img {
-    top: 10%;
+  .login-graphic {
     width: 40%;
   }
   .login-form-holder {
     background-color: rgba(255, 255, 255, 0.534);
     width: 50%;
+    border-radius: 5px;
     .form-title {
       text-align: center;
+      color: $dark-chocolate;
     }
     .login-form {
       padding: 5% 10%;
@@ -35,6 +37,10 @@ $dark-chocolate: #3d280f;
       }
       .submit-btn {
         margin-right: 10px;
+        font-size: 0.95em;
+      }
+      .back-btn {
+        text-decoration: none;
       }
     }
   }

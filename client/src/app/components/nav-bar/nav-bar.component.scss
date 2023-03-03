@@ -13,19 +13,21 @@ $chocolate: #5b462d;
 $dark-chocolate: #3d280f;
 
 .nav-bar {
+  position: fixed;
+  background-color: $bone;
   width: 100%;
-  border-bottom: 1px solid $bronze;
+  height: 10vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 50%;
-  .nav-logo {
+  .nav-logo-lnk {
     padding: calc((7px / $screen-height) * 100%) 0;
     width: calc((150px / $screen-width) * 100%);
   }
   .login-button {
     background-color: $slate-gray;
     color: white;
-    border-radius: 0;
+    text-decoration: none;
   }
 }

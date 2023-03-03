@@ -14,22 +14,28 @@ $dark-chocolate: #3d280f;
 
 .registration-form-container {
   background-color: $khaki;
+  height: 91vh;
   display: flex;
   justify-content: center;
   align-items: center;
   .registration-graphic {
     width: 40%;
-    .registration-graphic-img {
-      position: fixed;
-      top: 10%;
-      width: 40%;
-    }
+    padding-top: 2%;
+    // .registration-graphic-img {
+    //   position: fixed;
+    //   top: 10%;
+    //   width: 40%;
+    // }
   }
   .registration-form {
     background-color: rgba(255, 255, 255, 0.534);
-    width: 60%;
+    width: 50%;
+    height: 65vh;
+    overflow-y: auto;
+    border-radius: 5px;
     .form-title {
       text-align: center;
+      color: $dark-chocolate;
     }
     .client-reg-form {
       padding: 5% 10%;
@@ -51,6 +57,10 @@ $dark-chocolate: #3d280f;
       }
       .submit-btn {
         margin-right: 10px;
+        font-size: 0.95em;
+      }
+      .back-btn {
+        text-decoration: none;
       }
     }
     .lawyer-reg-form {
@@ -78,6 +88,10 @@ $dark-chocolate: #3d280f;
       }
       .submit-btn {
         margin-right: 10px;
+        font-size: 0.95em;
+      }
+      .back-btn {
+        text-decoration: none;
       }
     }
   }

@@ -12,6 +12,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],
