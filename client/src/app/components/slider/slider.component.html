@@ -1,11 +1,13 @@
-<mat-label>Consultation fees (BDT)</mat-label>
-<mat-slider
-  min="500"
-  max="50000"
-  step="500"
-  showTickMarks
-  discrete
-  [displayWith]="formatLabel"
->
-  <input matSliderThumb formControlName="lawyerConsultationFee"/>
-</mat-slider>
+<div [formGroup]="form">
+  <mat-label>Consultation fees (BDT)</mat-label>
+  <mat-slider
+    min="500"
+    max="50000"
+    step="500"
+    showTickMarks
+    discrete
+    [displayWith]="formatLabel"
+  >
+    <input matSliderThumb formControlName="lawyerConsultationFee" />
+  </mat-slider>
+</div>

@@ -1,20 +1,24 @@
-<mat-form-field class="category-selection" appearance="fill">
-  <mat-label>Area of Expertise</mat-label>
-  <input
-    type="text"
-    placeholder="Select a field"
-    matInput
-    [formControl]="lawyerServiceCategory"
-    formControlName="lawyerServiceCategory"
-    [matAutocomplete]="auto"
-    [required]="true"
-  />
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-      {{ option }}
-    </mat-option>
-  </mat-autocomplete>
-  <mat-error *ngIf="lawyerServiceCategory?.errors?.['required']"
-    >Area of Expertise is required</mat-error
-  >
-</mat-form-field>
+<div [formGroup]="form">
+  <mat-form-field class="category-selection" appearance="fill">
+    <mat-label>Area of Expertise</mat-label>
+    <input
+      type="text"
+      placeholder="Select a field"
+      matInput
+      formControlName="lawyerServiceCategory"
+      [matAutocomplete]="auto"
+      [required]="true"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngIf="lawyerServiceCategory?.errors?.['required']"
+      >Area of Expertise is required</mat-error
+    >
+  </mat-form-field>
+</div>

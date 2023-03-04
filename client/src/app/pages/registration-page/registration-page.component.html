@@ -115,7 +115,7 @@
           </div>
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>
-            <a class="back-btn" mat-flat-button href="/">Back</a>
+            <a class="back-btn" mat-flat-button routerLink="">Back</a>
           </div>
           <div *ngIf="errorMessage.length" class="error-message">
             {{ errorMessage }}
@@ -131,7 +131,7 @@
         <form
           action=""
           [formGroup]="lawyerRegisterForm"
-          (submit)="handleClientSubmit()"
+          (submit)="handleLawyerSubmit()"
           class="lawyer-reg-form"
         >
           <div class="name-container">
@@ -243,9 +243,11 @@
             >
           </mat-form-field>
 
-          <app-category-autocomplete></app-category-autocomplete>
+          <app-category-autocomplete
+            [form]="lawyerRegisterForm"
+          ></app-category-autocomplete>
 
-          <app-slider></app-slider>
+          <app-slider [form]="lawyerRegisterForm"></app-slider>
 
           <mat-form-field class="institution">
             <mat-label>Legal Education institution</mat-label>
@@ -271,7 +273,7 @@
           </mat-form-field>
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>
-            <a class="back-btn" mat-flat-button href="/">Back</a>
+            <a class="back-btn" mat-flat-button routerlink="">Back</a>
           </div>
           <div *ngIf="errorMessage.length" class="error-message">
             {{ errorMessage }}

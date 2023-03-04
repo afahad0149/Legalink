@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
@@ -9,6 +9,8 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./category-autocomplete.component.scss'],
 })
 export class CategoryAutocompleteComponent implements OnInit {
+  @Input() form!: FormGroup;
+
   lawyerServiceCategory = new FormControl('');
   options: string[] = [
     'Arbitration',
@@ -24,8 +26,7 @@ export class CategoryAutocompleteComponent implements OnInit {
     'Personal Injury',
     'Tax',
   ];
-  filteredOptions: Observable<string[]> | undefined;
-
+  filteredOptions!: Observable<string[]>;
   ngOnInit() {
     this.filteredOptions = this.lawyerServiceCategory.valueChanges.pipe(
       startWith(''),
@@ -35,6 +36,7 @@ export class CategoryAutocompleteComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
+    console.log(filterValue);
 
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)

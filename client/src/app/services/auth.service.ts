@@ -8,7 +8,7 @@ import { User } from 'src/app/models/user.model';
   providedIn: 'root',
 })
 export class AuthService {
-  rootUrl = 'http://localhost:4020';
+  rootUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,6 +33,19 @@ export class AuthService {
     almaMater?: string,
     bio?: string
   ): Observable<User> {
+    console.log({
+      firstName,
+      lastName,
+      email,
+      phone,
+      password,
+      userType,
+      licenseNumber,
+      serviceCategory,
+      consultationFee,
+      almaMater,
+      bio,
+    });
     return this.http.post<User>(this.rootUrl + '/register', {
       firstName,
       lastName,

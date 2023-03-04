@@ -120,6 +120,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   handleLawyerSubmit() {
+    console.log('lawyer submit clicked', this.lawyerRegisterForm.value);
     const {
       lawyerFirstName,
       lawyerLastName,
@@ -205,6 +206,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   get lawyerServiceCategory() {
+    console.log(this.lawyerRegisterForm.value['lawyerServiceCategory']);
     return this.lawyerRegisterForm.get('lawyerServiceCategory');
   }
 
