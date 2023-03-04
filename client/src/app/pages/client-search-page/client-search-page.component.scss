@@ -28,6 +28,30 @@ $dark-chocolate: #3d280f;
       color: $bone;
       font-weight: 400;
     }
+    .radio-container {
+      padding-top: 12%;
+      mat-label {
+        color: white;
+      }
+      mat-radio-group {
+        padding-top: 5%;
+        display: block;
+        padding-left: 2%;
+        mat-radio-button {
+          display: block;
+          .mdc-radio__background {
+            border-color: #fff !important;
+          }
+          span {
+            color: white;
+          }
+        }
+      }
+      .fee-label {
+        margin-bottom: 0;
+        color: white;
+      }
+    }
   }
   .search-results-container {
     width: 80%;

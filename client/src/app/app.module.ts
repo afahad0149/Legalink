@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
+import { MatRadioModule } from '@angular/material/radio';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
@@ -34,7 +35,7 @@ import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-
     CategoryAutocompleteComponent,
     ClientSearchPageComponent,
     LawyerDashboardPageComponent,
-    AdminDashboardPageComponent
+    AdminDashboardPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-
     MatSliderModule,
     MatAutocompleteModule,
     MatIconModule,
+    MatRadioModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}, {}),
   ],
