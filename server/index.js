@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 // importing routers
 const authRouter = require('./routers/authRouter');
 const adminRouter = require('./routers/admin');
+const searchRouter = require('./routers/client-search');
 
 // env variables
 require('dotenv').config();
@@ -22,6 +23,7 @@ app.use(cors(corsConfig));
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
+app.use(searchRouter);
 
 (async function bootstrap() {
   try {
