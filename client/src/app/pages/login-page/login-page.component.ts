@@ -34,7 +34,11 @@ export class LoginPageComponent implements OnInit {
       this.auth.login(email, password).subscribe({
         next: (res) => {
           const user = res.body;
-          this.router.navigate(['home']);
+          if (user && user.userType === 'client')
+            this.router.navigate(['client-search']);
+          else if (user && user.userType === 'lawyer')
+            this.router.navigate(['lawyer-dashboard']);
+          else this.router.navigate(['admin-dashboard']);
         },
         error: (err) => {
           this.errorMessage = err.error;

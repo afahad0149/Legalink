@@ -6,7 +6,19 @@ const secret = process.env.JWT_SECRET;
 
 const register = async (req, res) => {
   try {
-    const { firstName, lastName, email, password, userType } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      password,
+      userType,
+      licenseNumber,
+      serviceCategory,
+      consultationFee,
+      almaMater,
+      bio,
+    } = req.body;
     const checkUser = await User.find({ email });
     if (checkUser.length) {
       res.status(401).send('An account with this email already exists.');
@@ -15,15 +27,40 @@ const register = async (req, res) => {
         if (password === '') throw new Error();
         const salt = bcrypt.genSaltSync();
         const encryptedPass = bcrypt.hashSync(password, salt);
-        const newUser = await User.create({
-          firstName,
-          lastName,
-          email,
-          password: encryptedPass,
-          userType,
-        });
+        let newUser;
 
-        const projection = { _id: 1, email: 1, firstName: 1, lastName: 1 };
+        //check if user is lawyer
+        if (userType === 'lawyer') {
+          newUser = await User.create({
+            firstName,
+            lastName,
+            email,
+            phone,
+            password: encryptedPass,
+            userType,
+            licenseNumber,
+            serviceCategory,
+            consultationFee,
+            almaMater,
+            bio,
+          });
+        } else {
+          newUser = await User.create({
+            firstName,
+            lastName,
+            email,
+            phone,
+            password: encryptedPass,
+            userType,
+          });
+        }
+        const projection = {
+          _id: 1,
+          email: 1,
+          firstName: 1,
+          lastName: 1,
+          userType: 1,
+        };
         const user = await User.findById(newUser._id, projection);
         const token = jwt.sign({ _id: user._id }, secret);
         res.setHeader('Authorization', 'Bearer ' + token); // exposed header
@@ -47,7 +84,13 @@ const login = async (req, res) => {
     } else {
       const user = checkUser[0];
       if (bcrypt.compareSync(password, user.password)) {
-        const projection = { _id: 1, email: 1, firstName: 1, lastName: 1 };
+        const projection = {
+          _id: 1,
+          email: 1,
+          firstName: 1,
+          lastName: 1,
+          userType: 1,
+        };
         const userToSend = await User.findById(user._id, projection);
         const token = jwt.sign({ _id: user._id }, secret);
         res.setHeader('Authorization', 'Bearer ' + token);

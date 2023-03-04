@@ -20,6 +20,9 @@ import { SliderComponent } from './components/slider/slider.component';
 import { CategoryAutocompleteComponent } from './components/category-autocomplete/category-autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientSearchPageComponent } from './pages/client-search-page/client-search-page.component';
+import { LawyerDashboardPageComponent } from './pages/lawyer-dashboard-page/lawyer-dashboard-page.component';
+import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-dashboard-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPageComponent,
     SliderComponent,
     CategoryAutocompleteComponent,
+    ClientSearchPageComponent,
+    LawyerDashboardPageComponent,
+    AdminDashboardPageComponent
   ],
   imports: [
     BrowserModule,

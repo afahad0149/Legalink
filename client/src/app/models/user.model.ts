@@ -4,8 +4,8 @@ export interface User {
   lastName: string;
   email: string;
   phone: string;
-  type: string;
-  
+  userType: string;
+
   // extra properties for userType 'lawyer'
   licenseNumber?: string;
   serviceCategory?: string;
