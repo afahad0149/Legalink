@@ -5,7 +5,6 @@ require('dotenv').config();
 const secret = process.env.JWT_SECRET;
 
 const register = async (req, res) => {
-  console.log(req.body);
   try {
     const { firstName, lastName, email, password, userType } = req.body;
     const checkUser = await User.find({ email });

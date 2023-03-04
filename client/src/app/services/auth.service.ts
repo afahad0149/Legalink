@@ -33,19 +33,6 @@ export class AuthService {
     almaMater?: string,
     bio?: string
   ): Observable<User> {
-    console.log({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password,
-      userType,
-      licenseNumber,
-      serviceCategory,
-      consultationFee,
-      almaMater,
-      bio,
-    });
     return this.http.post<User>(this.rootUrl + '/register', {
       firstName,
       lastName,
