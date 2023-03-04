@@ -1,1 +1,13 @@
-<p>client-search-page works!</p>
+<div class="search-page-container">
+  <div class="search-container">
+    <form [formGroup]="searchForm" class="search-form">
+      <h2 class="search-heading">Enter Search Details</h2>
+      <app-slider [form]="searchForm"></app-slider>
+      <app-category-autocomplete [form]="searchForm"></app-category-autocomplete>
+    </form>
+  </div>
+  <div class="search-results-container">
+    <h2 class="search-results-heading">Search Results</h2>
+    
+  </div>
+</div>

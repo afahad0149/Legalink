@@ -1,0 +1,44 @@
+// Screen dimensions
+$screen-width: 1280px;
+$screen-height: 832px;
+
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+.search-page-container {
+  height: 92.5%;
+  display: flex;
+  .search-container {
+    width: 20%;
+    height: 100%;
+    background-color: $dark-chocolate;
+    padding: 3% 2%;
+    padding-bottom: 0;
+    .search-heading {
+      margin: 0;
+      padding-top: 7%;
+      text-align: center;
+      color: $bone;
+      font-weight: 400;
+    }
+  }
+  .search-results-container {
+    width: 80%;
+    height: 100%;
+    padding-top: 4.4%;
+    padding: 3% 2%;
+    padding-bottom: 0;
+    .search-results-heading {
+      margin: 0;
+      padding-top: 1.8%;
+      font-weight: 400;
+    }
+  }
+}
