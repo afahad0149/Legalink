@@ -18,7 +18,7 @@ $dark-chocolate: #3d280f;
   .hero-title {
     margin: 0;
     padding-top: 3%;
-    font-size: 60px;
+    font-size: 45px;
     color: $dark-chocolate;
   }
   .hero-title,
@@ -27,13 +27,16 @@ $dark-chocolate: #3d280f;
   }
   .hero-body {
     display: flex;
-    .hero-info-text {
-      width: 35%;
-      font-size: 30px;
-      color: $dark-chocolate;
+    .hero-info-container {
+      width: 40%;
+      .hero-info-text {
+        width: 100%;
+        font-size: 25px;
+        color: $dark-chocolate;
+      }
     }
-    .lawyer-reg-button {
-      width: 32%;
+    .reg-button {
+      width: 100%;
       height: 50px;
       text-decoration: none;
       background-color: $chocolate;
@@ -41,9 +44,6 @@ $dark-chocolate: #3d280f;
     }
     .hero-img {
       width: 50%;
-      position: fixed;
-      top: 25%;
-      left: 40%;
     }
   }
 }

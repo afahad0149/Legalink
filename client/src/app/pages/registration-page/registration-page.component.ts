@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -189,7 +188,7 @@ export class RegistrationPageComponent implements OnInit {
     return this.lawyerRegisterForm.get('lawyerConfirmPassword');
   }
 
-  get lawyerLicenseNumber() {
+  get lawyerLicenseNumber(): any {
     return this.lawyerLicenseNumber.get('lawyerLicenseNumber');
   }
 }
