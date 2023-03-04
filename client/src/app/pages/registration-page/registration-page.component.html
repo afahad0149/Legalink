@@ -130,7 +130,7 @@
       <mat-tab label="Register as Lawyer">
         <form
           action=""
-          [formGroup]="clientRegisterForm"
+          [formGroup]="lawyerRegisterForm"
           (submit)="handleClientSubmit()"
           class="lawyer-reg-form"
         >
@@ -249,11 +249,25 @@
 
           <mat-form-field class="institution">
             <mat-label>Legal Education institution</mat-label>
-            <input matInput required />
+            <input
+              matInput
+              formControlName="lawyerAlmaMater"
+              [required]="true"
+            />
+            <mat-error *ngIf="lawyerAlmaMater?.errors?.['required']"
+              >Educational Institution is required</mat-error
+            >
           </mat-form-field>
           <mat-form-field class="bio">
             <mat-label>Bio</mat-label>
-            <textarea matInput required></textarea>
+            <textarea
+              matInput
+              formControlName="lawyerBio"
+              [required]="true"
+            ></textarea>
+            <mat-error *ngIf="lawyerBio?.errors?.['required']"
+              >Bio is required</mat-error
+            >
           </mat-form-field>
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>

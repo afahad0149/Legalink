@@ -4,12 +4,17 @@
     type="text"
     placeholder="Select a field"
     matInput
-    [formControl]="myControl"
+    [formControl]="lawyerServiceCategory"
+    formControlName="lawyerServiceCategory"
     [matAutocomplete]="auto"
+    [required]="true"
   />
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
       {{ option }}
     </mat-option>
   </mat-autocomplete>
+  <mat-error *ngIf="lawyerServiceCategory?.errors?.['required']"
+    >Area of Expertise is required</mat-error
+  >
 </mat-form-field>

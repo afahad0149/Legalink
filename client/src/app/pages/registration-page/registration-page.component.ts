@@ -44,7 +44,7 @@ export class RegistrationPageComponent implements OnInit {
     ]),
     lawyerLicenseNumber: new FormControl('', [Validators.required]),
     lawyerServiceCategory: new FormControl('', [Validators.required]),
-    lawyerConsultationFee: new FormControl('', [Validators.required]),
+    lawyerConsultationFee: new FormControl(500),
     lawyerAlmaMater: new FormControl('', [Validators.required]),
     lawyerBio: new FormControl('', [Validators.required]),
   });
@@ -96,7 +96,7 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   get clientFirstName() {
-    return this.clientRegisterForm.get('clientfirstName');
+    return this.clientRegisterForm.get('clientFirstName');
   }
 
   get clientLastName() {
@@ -128,6 +128,10 @@ export class RegistrationPageComponent implements OnInit {
       lawyerPassword,
       lawyerConfirmPassword,
       lawyerLicenseNumber,
+      lawyerServiceCategory,
+      lawyerConsultationFee,
+      lawyerAlmaMater,
+      lawyerBio,
     } = this.lawyerRegisterForm.value;
     if (
       lawyerFirstName &&
@@ -137,7 +141,11 @@ export class RegistrationPageComponent implements OnInit {
       lawyerPassword &&
       lawyerPassword === lawyerConfirmPassword &&
       lawyerPassword.length > 5 &&
-      lawyerLicenseNumber
+      lawyerLicenseNumber &&
+      lawyerServiceCategory &&
+      lawyerConsultationFee &&
+      lawyerAlmaMater &&
+      lawyerBio
     ) {
       this.auth
         .register(
@@ -147,7 +155,11 @@ export class RegistrationPageComponent implements OnInit {
           lawyerPhone,
           lawyerPassword,
           'lawyer',
-          lawyerLicenseNumber
+          lawyerLicenseNumber,
+          lawyerServiceCategory,
+          lawyerConsultationFee,
+          lawyerAlmaMater,
+          lawyerBio
         )
         .subscribe({
           next: () => {
@@ -188,7 +200,23 @@ export class RegistrationPageComponent implements OnInit {
     return this.lawyerRegisterForm.get('lawyerConfirmPassword');
   }
 
-  get lawyerLicenseNumber(): any {
-    return this.lawyerLicenseNumber.get('lawyerLicenseNumber');
+  get lawyerLicenseNumber() {
+    return this.lawyerRegisterForm.get('lawyerLicenseNumber');
+  }
+
+  get lawyerServiceCategory() {
+    return this.lawyerRegisterForm.get('lawyerServiceCategory');
+  }
+
+  get lawyerConsultationFee() {
+    return this.lawyerRegisterForm.get('lawyerConsultationFee');
+  }
+
+  get lawyerAlmaMater() {
+    return this.lawyerRegisterForm.get('lawyerAlmaMater');
+  }
+
+  get lawyerBio() {
+    return this.lawyerRegisterForm.get('lawyerBio');
   }
 }

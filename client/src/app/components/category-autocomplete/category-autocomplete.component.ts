@@ -9,7 +9,7 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./category-autocomplete.component.scss'],
 })
 export class CategoryAutocompleteComponent implements OnInit {
-  myControl = new FormControl('');
+  lawyerServiceCategory = new FormControl('');
   options: string[] = [
     'Arbitration',
     'Business/Corporate',
@@ -27,7 +27,7 @@ export class CategoryAutocompleteComponent implements OnInit {
   filteredOptions: Observable<string[]> | undefined;
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.lawyerServiceCategory.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value || ''))
     );

@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { SliderComponent } from './components/slider/slider.component';
 import { CategoryAutocompleteComponent } from './components/category-autocomplete/category-autocomplete.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatButtonModule,
     MatTabsModule,
     MatInputModule,

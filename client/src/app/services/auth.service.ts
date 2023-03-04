@@ -9,6 +9,7 @@ import { User } from 'src/app/models/user.model';
 })
 export class AuthService {
   rootUrl = 'http://localhost:4020';
+
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<HttpResponse<User>> {
