@@ -1,22 +1,17 @@
 <div class="search-page-container">
   <div class="search-container">
     <form [formGroup]="searchForm" class="search-form">
-      <h2 class="search-heading">Enter Search Details</h2>
-      <div class="radio-container">
-        <mat-label>Availability</mat-label>
-
-        <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="true"><span>All</span></mat-radio-button>
-          <mat-radio-button value="false"
-            ><span>Only Available</span></mat-radio-button
-          >
-        </mat-radio-group>
+      <h2 class="search-heading">Filters</h2>
+      <div class="avail-container">
+        <mat-slide-toggle class="avail-toggle">
+          <span class="avail-text">Available</span>
+        </mat-slide-toggle>
       </div>
-      <p class="fee-label"> Consultation fees (BDT)</p>
-      <app-slider [form]="searchForm"></app-slider>
       <app-category-autocomplete
         [form]="searchForm"
       ></app-category-autocomplete>
+      <p class="fee-label">Consultation fees (BDT)</p>
+      <app-slider  [form]="searchForm"></app-slider>
     </form>
   </div>
   <div class="search-results-container">

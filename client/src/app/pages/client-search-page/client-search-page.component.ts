@@ -11,5 +11,6 @@ export class ClientSearchPageComponent {
     lawyerServiceCategory: new FormControl('', [Validators.required]),
     lawyerConsultationFee: new FormControl(500),
   });
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 }

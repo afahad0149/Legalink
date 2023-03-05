@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CloudinaryService } from 'src/app/services/cloudinary/cloudinary.service';
 
@@ -55,7 +56,8 @@ export class RegistrationPageComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private fb: FormBuilder,
-    private cloudinary: CloudinaryService
+    private cloudinary: CloudinaryService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -91,8 +93,10 @@ export class RegistrationPageComponent implements OnInit {
           next: () => {
             this.success = true;
             this.clientRegisterForm.reset;
+            this.router.navigate(['login']);
           },
           error: (err) => {
+            this.clientRegisterForm.reset;
             this.errorMessage = err.error;
             setTimeout(() => {
               this.errorMessage = '';
@@ -180,10 +184,12 @@ export class RegistrationPageComponent implements OnInit {
                 next: () => {
                   this.success = true;
                   this.lawyerRegisterForm.reset;
+                  this.router.navigate(['login']);
                 },
 
                 error: (err) => {
                   this.errorMessage = err.error;
+                  this.lawyerRegisterForm.reset;
                   setTimeout(() => {
                     this.errorMessage = '';
                   }, 3000);
@@ -211,6 +217,7 @@ export class RegistrationPageComponent implements OnInit {
             next: () => {
               this.success = true;
               this.lawyerRegisterForm.reset;
+              this.router.navigate(['login']);
             },
             error: (err) => {
               this.errorMessage = err.error;

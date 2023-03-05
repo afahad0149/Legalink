@@ -28,29 +28,17 @@ $dark-chocolate: #3d280f;
       color: $bone;
       font-weight: 400;
     }
-    .radio-container {
+    .avail-container {
       padding-top: 12%;
-      mat-label {
-        color: white;
+      padding-left: 2%;
+      margin-bottom: 15%;
+      .avail-text {
+        color: $bone;
       }
-      mat-radio-group {
-        padding-top: 5%;
-        display: block;
-        padding-left: 2%;
-        mat-radio-button {
-          display: block;
-          .mdc-radio__background {
-            border-color: #fff !important;
-          }
-          span {
-            color: white;
-          }
-        }
-      }
-      .fee-label {
-        margin-bottom: 0;
-        color: white;
-      }
+    }
+    .fee-label {
+      margin-bottom: 0;
+      color: $bone;
     }
   }
   .search-results-container {
@@ -65,4 +53,8 @@ $dark-chocolate: #3d280f;
       font-weight: 400;
     }
   }
+}
+
+.mdc-radio__outer-circle {
+  border-color: $bone !important;
 }
