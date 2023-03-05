@@ -44,16 +44,17 @@ const lawyerSchema = new Schema({
   },
   profilePicUrl: {
     type: String,
-    default: '',
+    default:
+      'https://res.cloudinary.com/djxuxbxet/image/upload/v1677984596/Legalink-Lawyer/no_profile_pic.jpg',
   },
   isRegistered: {
     type: Boolean,
-    default: false,
+    default: true, // set as false when implementing the admin approve
   },
   isAvailable: {
     type: Boolean,
     default: true,
-  }
+  },
 });
 
 const Lawyer = model('Lawyer', lawyerSchema);

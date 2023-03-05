@@ -155,11 +155,12 @@ export class RegistrationPageComponent implements OnInit {
       lawyerBio
     ) {
       const file = this.lawyerRegisterForm.controls.fileControl.value;
-      console.log(file);
+      let profilePicUrl =
+        'https://res.cloudinary.com/djxuxbxet/image/upload/v1677984596/Legalink-Lawyer/no_profile_pic.jpg';
       if (file) {
         this.cloudinary.cloudUpload(file, file.name).subscribe({
           next: (res: any) => {
-            const profilePicUrl = res.secure_url;
+            profilePicUrl = res.secure_url;
             this.auth
               .register(
                 lawyerFirstName,
@@ -203,7 +204,8 @@ export class RegistrationPageComponent implements OnInit {
             lawyerServiceCategory,
             lawyerConsultationFee,
             lawyerAlmaMater,
-            lawyerBio
+            lawyerBio,
+            profilePicUrl
           )
           .subscribe({
             next: () => {

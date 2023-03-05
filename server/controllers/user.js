@@ -1,4 +1,5 @@
 const { User } = require('../models/user');
+const { Lawyer } = require('../models/lawyer');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -18,6 +19,7 @@ const register = async (req, res) => {
       consultationFee,
       almaMater,
       bio,
+      profilePicUrl,
     } = req.body;
     const checkUser = await User.find({ email });
     if (checkUser.length) {
@@ -43,6 +45,21 @@ const register = async (req, res) => {
             consultationFee,
             almaMater,
             bio,
+            profilePicUrl,
+          });
+          newLawyer = await Lawyer.create({
+            firstName,
+            lastName,
+            email,
+            phone,
+            password: encryptedPass,
+            userType,
+            licenseNumber,
+            serviceCategory,
+            consultationFee,
+            almaMater,
+            bio,
+            profilePicUrl,
           });
         } else {
           newUser = await User.create({

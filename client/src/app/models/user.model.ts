@@ -12,4 +12,5 @@ export interface User {
   consultationFee?: number;
   almaMater?: string;
   bio?: string;
+  profilePicUrl?: string;
 }

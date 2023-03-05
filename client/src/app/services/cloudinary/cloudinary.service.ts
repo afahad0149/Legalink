@@ -9,7 +9,6 @@ export class CloudinaryService {
   constructor(private http: HttpClient) {}
 
   cloudUpload(file: File, id: string) {
-    console.log(file);
     const file_name = file.name.split('.')[0];
     const public_id = id + '_' + Date.now() + '_' + file_name;
 
