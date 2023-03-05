@@ -271,6 +271,19 @@
               >Bio is required</mat-error
             >
           </mat-form-field>
+
+          <mat-form-field class="dp-upload">
+            <mat-label class="dp-upload-label">Upload Profile Picture</mat-label>
+            <ngx-mat-file-input
+              formControlName="fileControl"
+              [multiple]="false"
+              accept="image/*"
+              color="primary"
+              class="dp-upload-inp"
+            >
+            </ngx-mat-file-input>
+          </mat-form-field>
+
           <div class="button-container">
             <button class="submit-btn" mat-flat-button>Submit</button>
             <a class="back-btn" mat-flat-button routerlink="">Back</a>

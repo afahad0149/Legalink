@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { CloudinaryService } from 'src/app/services/cloudinary/cloudinary.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -10,9 +11,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class RegistrationPageComponent implements OnInit {
   hidePass = true;
   hideConfirmPass = true;
-
   errorMessage = '';
   success = false;
+
+  @Output() fileUploadEvent = new EventEmitter();
 
   clientRegisterForm = this.fb.group({
     clientFirstName: new FormControl('', [Validators.required]),
@@ -47,9 +49,14 @@ export class RegistrationPageComponent implements OnInit {
     lawyerConsultationFee: new FormControl(500),
     lawyerAlmaMater: new FormControl('', [Validators.required]),
     lawyerBio: new FormControl('', [Validators.required]),
+    fileControl: new FormControl(),
   });
 
-  constructor(private auth: AuthService, private fb: FormBuilder) {}
+  constructor(
+    private auth: AuthService,
+    private fb: FormBuilder,
+    private cloudinary: CloudinaryService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -147,32 +154,70 @@ export class RegistrationPageComponent implements OnInit {
       lawyerAlmaMater &&
       lawyerBio
     ) {
-      this.auth
-        .register(
-          lawyerFirstName,
-          lawyerLastName,
-          lawyerEmail,
-          lawyerPhone,
-          lawyerPassword,
-          'lawyer',
-          lawyerLicenseNumber,
-          lawyerServiceCategory,
-          lawyerConsultationFee,
-          lawyerAlmaMater,
-          lawyerBio
-        )
-        .subscribe({
-          next: () => {
-            this.success = true;
-            this.lawyerRegisterForm.reset;
-          },
-          error: (err) => {
-            this.errorMessage = err.error;
-            setTimeout(() => {
-              this.errorMessage = '';
-            }, 3000);
+      const file = this.lawyerRegisterForm.controls.fileControl.value;
+      console.log(file);
+      if (file) {
+        this.cloudinary.cloudUpload(file, file.name).subscribe({
+          next: (res: any) => {
+            const profilePicUrl = res.secure_url;
+            this.auth
+              .register(
+                lawyerFirstName,
+                lawyerLastName,
+                lawyerEmail,
+                lawyerPhone,
+                lawyerPassword,
+                'lawyer',
+                lawyerLicenseNumber,
+                lawyerServiceCategory,
+                lawyerConsultationFee,
+                lawyerAlmaMater,
+                lawyerBio,
+                profilePicUrl
+              )
+              .subscribe({
+                next: () => {
+                  this.success = true;
+                  this.lawyerRegisterForm.reset;
+                },
+
+                error: (err) => {
+                  this.errorMessage = err.error;
+                  setTimeout(() => {
+                    this.errorMessage = '';
+                  }, 3000);
+                },
+              });
           },
         });
+      } else {
+        this.auth
+          .register(
+            lawyerFirstName,
+            lawyerLastName,
+            lawyerEmail,
+            lawyerPhone,
+            lawyerPassword,
+            'lawyer',
+            lawyerLicenseNumber,
+            lawyerServiceCategory,
+            lawyerConsultationFee,
+            lawyerAlmaMater,
+            lawyerBio
+          )
+          .subscribe({
+            next: () => {
+              this.success = true;
+              this.lawyerRegisterForm.reset;
+            },
+            error: (err) => {
+              this.errorMessage = err.error;
+              setTimeout(() => {
+                this.errorMessage = '';
+              }, 3000);
+            },
+          });
+      }
     }
   }
 

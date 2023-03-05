@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientSearchPageComponent } from './pages/client-search-page/client-search-page.component';
 import { LawyerDashboardPageComponent } from './pages/lawyer-dashboard-page/lawyer-dashboard-page.component';
 import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-dashboard-page.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-
     MatIconModule,
     MatRadioModule,
     ReactiveFormsModule,
+    NgxMatFileInputModule,
     StoreModule.forRoot({}, {}),
   ],
   providers: [],

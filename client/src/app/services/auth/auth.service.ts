@@ -31,7 +31,8 @@ export class AuthService {
     serviceCategory?: string,
     consultationFee?: number,
     almaMater?: string,
-    bio?: string
+    bio?: string,
+    profilePicUrl?: string
   ): Observable<User> {
     return this.http.post<User>(this.rootUrl + '/register', {
       firstName,
@@ -45,6 +46,7 @@ export class AuthService {
       consultationFee,
       almaMater,
       bio,
+      profilePicUrl
     });
   }
 
