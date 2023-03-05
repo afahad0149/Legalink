@@ -41,6 +41,11 @@ const userSchema = new Schema({
   bio: {
     type: String,
   },
+  profilePicUrl: {
+    type: String,
+    default:
+      'https://res.cloudinary.com/djxuxbxet/image/upload/v1677984596/Legalink-Lawyer/no_profile_pic.jpg',
+  },
 });
 
 const User = model('User', userSchema);
