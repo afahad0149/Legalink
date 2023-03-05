@@ -7,13 +7,16 @@ import { ClientSearchPageComponent } from './pages/client-search-page/client-sea
 import { LawyerDashboardPageComponent } from './pages/lawyer-dashboard-page/lawyer-dashboard-page.component';
 import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-dashboard-page.component';
 
+import { LawyerProfileComponent } from './components/lawyer-profile/lawyer-profile.component';
+
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
   { path: 'register', component: RegistrationPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'client-search', component: ClientSearchPageComponent },
   { path: 'lawyer-dashboard', component: LawyerDashboardPageComponent },
-  { path: 'admin-dashboard', component: AdminDashboardPageComponent}
+  { path: 'admin-dashboard', component: AdminDashboardPageComponent },
+  { path: 'lawyer/:id', component: LawyerProfileComponent },
 ];
 
 @NgModule({

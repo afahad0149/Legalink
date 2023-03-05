@@ -12,6 +12,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
@@ -25,6 +26,9 @@ import { ClientSearchPageComponent } from './pages/client-search-page/client-sea
 import { LawyerDashboardPageComponent } from './pages/lawyer-dashboard-page/lawyer-dashboard-page.component';
 import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-dashboard-page.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { LawyerCardsComponent } from './components/lawyer-cards/lawyer-cards.component';
+import { LawyerCardComponent } from './components/lawyer-card/lawyer-card.component';
+import { LawyerProfileComponent } from './components/lawyer-profile/lawyer-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,9 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     ClientSearchPageComponent,
     LawyerDashboardPageComponent,
     AdminDashboardPageComponent,
+    LawyerCardsComponent,
+    LawyerCardComponent,
+    LawyerProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +58,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MatAutocompleteModule,
     MatIconModule,
     MatSlideToggleModule,
+    MatCardModule,
     ReactiveFormsModule,
     NgxMatFileInputModule,
     StoreModule.forRoot({}, {}),

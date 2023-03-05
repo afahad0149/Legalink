@@ -81,6 +81,7 @@ const register = async (req, res) => {
         const user = await User.findById(newUser._id, projection);
         const token = jwt.sign({ _id: user._id }, secret);
         res.setHeader('Authorization', 'Bearer ' + token); // exposed header
+
         res.status(201).send(user);
       } catch (error) {
         res.status(400).send('Could not create user');
@@ -111,7 +112,10 @@ const login = async (req, res) => {
         const userToSend = await User.findById(user._id, projection);
         const token = jwt.sign({ _id: user._id }, secret);
         res.setHeader('Authorization', 'Bearer ' + token);
-        res.status(201).send(userToSend);
+        const data = {userToSend, token, userType: userToSend.userType}
+        // console.log("user", userToSend);
+        // console.log(data);
+        res.status(201).send(data);
       } else {
         res.status(401).send('Invalid password.');
       }

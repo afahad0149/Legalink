@@ -16,10 +16,23 @@ const getLawyers = async (req, res, next) => {
       isRegistered: 1,
     };
     const lawyers = await Lawyer.find({}, projection);
-    res.status(201).send(lawyers);
+
+    res.status(200).send(lawyers);
   } catch (err) {
     res.status(401).send({ err });
   }
 };
 
-module.exports = getLawyers;
+const getSingleLawyer = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await Lawyer.findById(id)
+    console.log(data);
+    res.status(200).send(data)
+    
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
+
+module.exports ={ getLawyers, getSingleLawyer};
