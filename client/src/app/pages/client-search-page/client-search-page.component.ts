@@ -21,7 +21,7 @@ export class ClientSearchPageComponent implements OnInit {
       this.lawyers = lawyers.sort(
         ({ consultationFee: a }, { consultationFee: b }) => a - b
       );
-      console.log(this.lawyers);
+      // console.log(this.lawyers);
     });
   }
 }

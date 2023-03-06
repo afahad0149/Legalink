@@ -6,7 +6,7 @@ const secret = process.env.JWT_SECRET;
 const authMiddleware = async (req, res, next) => {
   try {
     const check = req.get('Authorization');
-    console.log("hello from auth")
+    // console.log("hello from auth")
     if (check) {
       const token = check.split(' ')[1];
       const { _id } = jwt.verify(token, secret);
@@ -22,7 +22,7 @@ const authMiddleware = async (req, res, next) => {
     }
   } catch (error) {
     res.status(500).send(error.error.message);
-   // console.log(error);
+    // console.log(error);
   }
 };
 

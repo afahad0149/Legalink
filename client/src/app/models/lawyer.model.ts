@@ -4,7 +4,6 @@ export interface Lawyer {
   lastName: string;
   email: string;
   phone: string;
-  userType: string;
 
   // extra properties for userType 'lawyer'
   licenseNumber: string;

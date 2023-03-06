@@ -1,0 +1,22 @@
+<div class="dialog-container" dialog-container>
+  <h2 mat-dialog-title>Request for service</h2>
+  <mat-dialog-content>
+    <form [formGroup]="dialogForm" class="dialog-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Provide a title describing your request" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          rows="11"
+          placeholder="Describe your request in details"
+        ></textarea>
+      </mat-form-field>
+    </form>
+    <button mat-flat-button>Send Request</button>
+    <button mat-flat-button (click)="handleClose()">Cancel</button>
+  </mat-dialog-content>
+</div>

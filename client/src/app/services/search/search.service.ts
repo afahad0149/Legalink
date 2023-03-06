@@ -24,7 +24,7 @@ export class SearchService {
       httpOptions
     );
   }
-  getSingleLawyer(id:string): Observable<Lawyer> {
+  getSingleLawyer(id: string): Observable<Lawyer> {
     const token = localStorage.getItem('user')!;
     const parsedToken = JSON.parse(token);
     const httpOptions = {
@@ -33,9 +33,6 @@ export class SearchService {
         Authorization: `Bearer ${parsedToken.body.token}`,
       },
     };
-    return this.http.get<Lawyer>(
-      this.rootUrl + `lawyer/${id}`,
-      httpOptions
-    );
+    return this.http.get<Lawyer>(this.rootUrl + `/lawyer/${id}`, httpOptions);
   }
 }
