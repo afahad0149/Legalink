@@ -1,22 +1,43 @@
 <div class="dialog-container" dialog-container>
   <h2 mat-dialog-title>Request for service</h2>
   <mat-dialog-content>
-    <form [formGroup]="dialogForm" class="dialog-form">
-      <mat-form-field appearance="fill">
+    <form
+      [formGroup]="dialogForm"
+      (submit)="handleSubmit()"
+      class="dialog-form"
+    >
+      <mat-form-field class="title" appearance="fill">
         <mat-label>Title</mat-label>
-        <input matInput placeholder="Provide a title describing your request" />
+        <input
+          matInput
+          formControlName="title"
+          placeholder="Provide a title describing your request"
+        />
+        <mat-error *ngIf="title?.errors?.['required']"
+          >Title is required</mat-error
+        >
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
         <textarea
           matInput
+          formControlName="description"
           rows="11"
           placeholder="Describe your request in details"
         ></textarea>
+        <mat-error *ngIf="description?.errors?.['required']"
+          >Description is required</mat-error
+        >
       </mat-form-field>
     </form>
-    <button mat-flat-button>Send Request</button>
+    <button mat-flat-button (click)="handleSubmit()">Send Request</button>
     <button mat-flat-button (click)="handleClose()">Cancel</button>
+    <div *ngIf="errorMessage.length" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="successMessage.length" class="success-message">
+      {{ successMessage }}
+    </div>
   </mat-dialog-content>
 </div>

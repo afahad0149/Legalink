@@ -34,7 +34,7 @@ export class LawyerProfileComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogueBoxComponent, {
-      data: { lawyer: this.id },
+      data: { id: this.id },
     });
   }
 }

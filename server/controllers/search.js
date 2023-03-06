@@ -45,11 +45,12 @@ const postTicket = async (req, res) => {
     if (existingTicket.length) {
       res.status(401).send('You already have a pending request');
     } else {
-      console.log(req.body);
+      // console.log(req.body);
       const ticket = await Ticket.create(req.body);
       res.status(201).send(ticket);
     }
   } catch (error) {
+    console.log(error);
     res.status(500).send(error);
   }
 };

@@ -3,5 +3,6 @@ export interface Ticket {
   lawyerId: string;
   title: string;
   description: string;
-  createdAt: number;
+  state?: string;
+  createdAt?: number;
 }
