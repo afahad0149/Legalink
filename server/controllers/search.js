@@ -19,7 +19,7 @@ const getLawyers = async (req, res, next) => {
 
     res.status(200).send(lawyers);
   } catch (err) {
-    res.status(401).send({ err });
+    res.status(400).send({ err });
   }
 };
 

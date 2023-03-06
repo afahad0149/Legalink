@@ -1,1 +1,10 @@
-<p>lawyer-dashboard-page works!</p>
+<ul class="ticket-list" *ngFor="let ticket of tickets">
+  <li>
+    <span>{{ ticket.createdAt }}</span>
+    <span>{{ ticket.title }}</span>
+    <span>{{ ticket.clientId }}</span>
+    <span>{{ ticket.state }}</span>
+    
+
+  </li>
+</ul>

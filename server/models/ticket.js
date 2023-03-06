@@ -19,11 +19,11 @@ const ticketSchema = new Schema({
   },
   state: {
     type: String,
-    default: 'pending'
+    default: 'pending',
   },
   createdAt: {
     type: Number,
-    default: Date.now(),
+    default: Date.now,
   },
 });
 
