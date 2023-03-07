@@ -13,6 +13,8 @@ export class TicketService {
 
   postTicket(
     clientId: string,
+    clientName: string,
+    clientEmail: string,
     lawyerId: string,
     title: string,
     description: string
@@ -30,6 +32,8 @@ export class TicketService {
       this.rootUrl + '/lawyer/post-ticket',
       {
         clientId,
+        clientName,
+        clientEmail,
         lawyerId,
         title,
         description,

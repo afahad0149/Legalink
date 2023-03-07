@@ -36,9 +36,17 @@ export class DialogueBoxComponent {
     if (title && description) {
       const clientId = JSON.parse(localStorage.getItem('user') || '""').body
         .userToSend._id;
+      const clientFirstName = JSON.parse(localStorage.getItem('user') || '""')
+        .body.userToSend.firstName;
+      const clientLastName = JSON.parse(localStorage.getItem('user') || '""')
+        .body.userToSend.lastName;
+      const clientEmail = JSON.parse(localStorage.getItem('user') || '""').body
+        .userToSend.email;
+      // console.log(clientFirstName, clientLastName, clientEmail);
+      const clientName = `${clientFirstName} ${clientLastName}`;
       const lawyerId = this.data.id;
       this.ticketService
-        .postTicket(clientId, lawyerId, title, description)
+        .postTicket(clientId, clientName, clientEmail, lawyerId, title, description)
         .subscribe({
           next: (ticket) => {
             this.successMessage = 'Ticket is successfully created';

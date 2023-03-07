@@ -2,20 +2,23 @@
   <div class="search-container">
     <form [formGroup]="searchForm" class="search-form">
       <h2 class="search-heading">Filters</h2>
-      <div class="avail-container">
+      <!-- <div class="avail-container">
         <mat-slide-toggle class="avail-toggle">
           <span class="avail-text">Available</span>
         </mat-slide-toggle>
-      </div>
+      </div> -->
       <app-category-autocomplete
         [form]="searchForm"
       ></app-category-autocomplete>
       <p class="fee-label">Consultation fees (BDT)</p>
-      <app-slider  [form]="searchForm"></app-slider>
+      <app-slider [form]="searchForm"></app-slider>
     </form>
   </div>
   <div class="search-results-container">
     <h2 class="search-results-heading">Search Results</h2>
-    <app-lawyer-cards class="lawyer-cards-container" [lawyers]="lawyers"></app-lawyer-cards>
+    <app-lawyer-cards
+      class="lawyer-cards-container"
+      [lawyers]="filteredLawyers || lawyers"
+    ></app-lawyer-cards>
   </div>
 </div>

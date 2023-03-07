@@ -1,16 +1,18 @@
 <table>
   <thead>
     <th>Date</th>
-    <th>Client Name</th>
     <th>Request Title</th>
+    <th>Client Name</th>
+    <th>Client Email</th>
     <th>Status</th>
     <th *ngIf="isPending">Controls</th>
   </thead>
   <tbody>
     <tr *ngFor="let ticket of tickets">
       <td>{{ ticket.createdAt }}</td>
-      <td>{{ ticket.clientId }}</td>
       <td>{{ ticket.title }}</td>
+      <td>{{ ticket.clientName }}</td>
+      <td>{{ ticket.clientEmail }}</td>
       <td>{{ ticket.state }}</td>
       <td *ngIf="isPending">
         <button

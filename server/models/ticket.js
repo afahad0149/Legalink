@@ -5,6 +5,14 @@ const ticketSchema = new Schema({
     type: String,
     required: true,
   },
+  clientName: {
+    type: String,
+    required: true,
+  },
+  clientEmail: {
+    type: String,
+    required: true,
+  },
   lawyerId: {
     type: String,
     required: true,
