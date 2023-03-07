@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ClientSearchPageComponent } from './pages/client-search-page/client-search-page.component';
 import { LawyerDashboardPageComponent } from './pages/lawyer-dashboard-page/lawyer-dashboard-page.component';
 import { AdminDashboardPageComponent } from './pages/admin-dashboard-page/admin-dashboard-page.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { LawyerCardsComponent } from './components/lawyer-cards/lawyer-cards.component';
 import { LawyerCardComponent } from './components/lawyer-card/lawyer-card.component';
 import { LawyerProfileComponent } from './components/lawyer-profile/lawyer-profile.component';
@@ -65,6 +66,7 @@ import { DashboardTableComponent } from './components/dashboard-table/dashboard-
     MatCardModule,
     MatDialogModule,
     ReactiveFormsModule,
+    NgxMatFileInputModule,
     StoreModule.forRoot({}, {}),
   ],
   providers: [],
