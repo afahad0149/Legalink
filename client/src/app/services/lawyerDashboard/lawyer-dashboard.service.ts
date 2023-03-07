@@ -24,4 +24,35 @@ export class LawyerDashboardService {
       httpOptions
     );
   }
+
+  activateTicket(ticket: Ticket): Observable<Ticket> {
+    const token = localStorage.getItem('user')!;
+    const parsedToken = JSON.parse(token);
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${parsedToken.body.token}`,
+      },
+    };
+    return this.http.put<Ticket>(
+      this.rootUrl + `/lawyerDashboard/activate/${ticket._id}`,
+      ticket,
+      httpOptions
+    );
+  }
+
+  deleteTicket(id: string): Observable<Ticket> {
+    const token = localStorage.getItem('user')!;
+    const parsedToken = JSON.parse(token);
+    const httpOptions = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${parsedToken.body.token}`,
+      },
+    };
+    return this.http.delete<Ticket>(
+      this.rootUrl + `/lawyerDashboard/delete/${id}`,
+      httpOptions
+    );
+  }
 }

@@ -4,7 +4,7 @@
     <th>Client Name</th>
     <th>Request Title</th>
     <th>Status</th>
-    <th>Controls</th>
+    <th *ngIf="isPending">Controls</th>
   </thead>
   <tbody>
     <tr *ngFor="let ticket of tickets">
@@ -12,7 +12,7 @@
       <td>{{ ticket.clientId }}</td>
       <td>{{ ticket.title }}</td>
       <td>{{ ticket.state }}</td>
-      <td>
+      <td *ngIf="isPending">
         <button
           mat-icon-button
           aria-label="Example icon button with a vertical three dot icon"
