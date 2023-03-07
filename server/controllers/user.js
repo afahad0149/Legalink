@@ -112,7 +112,18 @@ const login = async (req, res) => {
         const userToSend = await User.findById(user._id, projection);
         const token = jwt.sign({ _id: user._id }, secret);
         res.setHeader('Authorization', 'Bearer ' + token);
-        const data = {userToSend, token, userType: userToSend.userType}
+        let data = null;
+        if (userToSend.userType !== 'lawyer')
+          data = { userToSend, token, userType: userToSend.userType };
+        else {
+          const lawyerInfo = await Lawyer.findOne({ email });
+          data = {
+            userToSend,
+            token,
+            userType: userToSend.userType,
+            lawyerInfo,
+          };
+        }
         // console.log("user", userToSend);
         // console.log(data);
         res.status(201).send(data);

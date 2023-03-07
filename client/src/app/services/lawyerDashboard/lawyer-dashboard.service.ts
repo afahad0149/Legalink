@@ -19,6 +19,9 @@ export class LawyerDashboardService {
         Authorization: `Bearer ${parsedToken.body.token}`,
       },
     };
-    return this.http.get<Ticket[]>(this.rootUrl + '/lawyerDashboard', httpOptions);
+    return this.http.get<Ticket[]>(
+      this.rootUrl + '/lawyerDashboard',
+      httpOptions
+    );
   }
 }

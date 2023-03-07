@@ -1,10 +1,67 @@
-<ul class="ticket-list" *ngFor="let ticket of tickets">
-  <li>
-    <span>{{ ticket.createdAt }}</span>
-    <span>{{ ticket.title }}</span>
-    <span>{{ ticket.clientId }}</span>
-    <span>{{ ticket.state }}</span>
-    
+<div class="lawyer=dashboard-page-container">
+  <div class="state-change-container">
+    <button
+      class="pending-btn"
+      mat-flat-button
+      (click)="getFilteredTickets('pending')"
+    >
+      Pending
+    </button>
+    <button
+      class="active-btn"
+      mat-flat-button
+      (click)="getFilteredTickets('active')"
+    >
+      Active
+    </button>
+    <button
+      class="archieved-btn"
+      mat-flat-button
+      (click)="getFilteredTickets('archieved')"
+    >
+      Archieved
+    </button>
+  </div>
 
-  </li>
-</ul>
+  <ul class="ticket-list" *ngFor="let ticket of filteredTickets">
+    <li>
+      <span>{{ ticket.createdAt }}</span>
+      <span>{{ ticket.title }}</span>
+      <span>{{ ticket.clientId }}</span>
+      <span>{{ ticket.state }}</span>
+    </li>
+  </ul>
+</div>
+
+<!-- <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
