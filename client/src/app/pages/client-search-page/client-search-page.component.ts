@@ -28,7 +28,10 @@ export class ClientSearchPageComponent implements OnInit {
     });
     this.searchForm.valueChanges.subscribe((cng) => {
       console.log('category', cng.lawyerServiceCategory);
-      this.filterLawyers((cng.lawyerServiceCategory || ''), cng.lawyerConsultationFee || 50000);
+      this.filterLawyers(
+        cng.lawyerServiceCategory || '',
+        cng.lawyerConsultationFee || 50000
+      );
     });
   }
 
@@ -36,12 +39,8 @@ export class ClientSearchPageComponent implements OnInit {
     console.log('filter called');
     if (!category) this.filteredLawyers = this.lawyers;
     this.filteredLawyers = this.lawyers.filter(
-      (lawyer) => lawyer.serviceCategory === category && lawyer.consultationFee <= fees
+      (lawyer) =>
+        lawyer.serviceCategory === category && lawyer.consultationFee <= fees
     );
-  }
-
-  get lawyerServiceCategory(): string {
-    return 'hi';
-    // return  this.searchForm.get('')
   }
 }
