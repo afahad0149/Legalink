@@ -1,0 +1,41 @@
+// Screen dimensions
+$screen-width: 1280px;
+$screen-height: 832px;
+
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+.lawyer-dashboard-page-container {
+  height: 93%;
+  display: flex;
+  .state-change-container {
+    width: 20%;
+    height: 100%;
+    background-color: $dark-chocolate;
+    padding-top: 3%;
+    padding-bottom: 0;
+    .pending-btn,
+    .active-btn,
+    .archieved-btn {
+      display: block;
+      color: #b8acac;
+      background-color: $dark-chocolate;
+      width: 100%;
+      margin: 0;
+      border-radius: 0%;
+      font-weight: 200;
+      font-size: larger;
+      height: 10%;
+    }
+    .btn:focus {
+      background-color: $chocolate;
+    }
+  }
+}

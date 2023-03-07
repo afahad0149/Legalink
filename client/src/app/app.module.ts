@@ -31,6 +31,7 @@ import { LawyerCardsComponent } from './components/lawyer-cards/lawyer-cards.com
 import { LawyerCardComponent } from './components/lawyer-card/lawyer-card.component';
 import { LawyerProfileComponent } from './components/lawyer-profile/lawyer-profile.component';
 import { DialogueBoxComponent } from './components/dialogue-box/dialogue-box.component';
+import { DashboardTableComponent } from './components/dashboard-table/dashboard-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { DialogueBoxComponent } from './components/dialogue-box/dialogue-box.com
     LawyerCardComponent,
     LawyerProfileComponent,
     DialogueBoxComponent,
+    DashboardTableComponent,
   ],
   imports: [
     BrowserModule,

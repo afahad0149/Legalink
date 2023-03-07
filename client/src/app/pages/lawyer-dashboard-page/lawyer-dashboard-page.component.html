@@ -1,21 +1,22 @@
-<div class="lawyer=dashboard-page-container">
+<div class="lawyer-dashboard-page-container">
   <div class="state-change-container">
     <button
-      class="pending-btn"
+      class="pending-btn btn"
+      autofocus
       mat-flat-button
       (click)="getFilteredTickets('pending')"
     >
       Pending
     </button>
     <button
-      class="active-btn"
+      class="active-btn btn"
       mat-flat-button
       (click)="getFilteredTickets('active')"
     >
       Active
     </button>
     <button
-      class="archieved-btn"
+      class="archieved-btn btn"
       mat-flat-button
       (click)="getFilteredTickets('archieved')"
     >
