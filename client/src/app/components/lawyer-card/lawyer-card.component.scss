@@ -1,8 +1,19 @@
 .example-card {
-  display: inline-block;
-  width: 350px;
+  display: flex;
+  width: 100%;
   margin-bottom: 8px;
-  mat-card-subtitle {
-    font-size: 0.75em;
+  mat-card {
+    border-radius: 5px 0 0 5px;
+    mat-card-subtitle {
+      font-size: 0.75em;
+    }
   }
+  .card-img {
+    border-radius: 0 5px 5px 0;
+    width: 150px;
+  }
+}
+
+.example-card:hover {
+  transform: scale(1.15);
 }

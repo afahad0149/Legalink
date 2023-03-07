@@ -1,6 +1,14 @@
-.lawyer-class-list {
+.lawyer-cards-list {
+  padding: 3%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-   
+  flex-direction: row;
+  align-items: center;
+  gap: 6%;
+  width: 100%;
+  height: 68vh;
+  overflow-y: auto;
+  .card-width {
+    width: 25%;
+  }
 }

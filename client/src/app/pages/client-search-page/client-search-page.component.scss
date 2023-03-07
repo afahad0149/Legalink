@@ -13,7 +13,7 @@ $chocolate: #5b462d;
 $dark-chocolate: #3d280f;
 
 .search-page-container {
-  height: 92.5%;
+  height: 93%;
   display: flex;
   .search-container {
     width: 20%;
@@ -51,6 +51,11 @@ $dark-chocolate: #3d280f;
       margin: 0;
       padding-top: 1.8%;
       font-weight: 400;
+    }
+    .lawyer-cards-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

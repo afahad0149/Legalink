@@ -1,16 +1,19 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>{{
-        lawyer.firstName + ' ' + lawyer.lastName
-      }}</mat-card-title>
-      <mat-card-subtitle>
-        <div>{{ lawyer.serviceCategory + ' Lawyer' }}</div>
-        <div>{{ 'Consultation Fees: ৳' + lawyer.consultationFee }}</div>
-        <button mat-flat-button (click)="visitLawyer(lawyer._id)">Visit Profile</button>
-      </mat-card-subtitle>
-
-      <img mat-card-lg-image [src]="lawyer.profilePicUrl" />
-    </mat-card-title-group>
-  </mat-card-header>
-</mat-card>
+<div class="example-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{
+          lawyer.firstName + ' ' + lawyer.lastName
+        }}</mat-card-title>
+        <mat-card-subtitle>
+          <div >{{ lawyer.serviceCategory + ' Lawyer' }}</div>
+          <div>{{ 'Consultation Fees: ৳' + lawyer.consultationFee }}</div>
+          <button mat-flat-button (click)="visitLawyer(lawyer._id)">
+            Visit Profile
+          </button>
+        </mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+  </mat-card>
+  <img class="card-img" mat-card-lg-image [src]="lawyer.profilePicUrl" />
+</div>
