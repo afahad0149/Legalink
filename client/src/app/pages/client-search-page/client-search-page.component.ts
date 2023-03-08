@@ -15,9 +15,11 @@ export class ClientSearchPageComponent implements OnInit {
   });
   lawyers: Lawyer[] = [];
   filteredLawyers: Lawyer[] = [];
+  hideMainScreen: boolean = true;
   constructor(private fb: FormBuilder, private searchService: SearchService) {}
 
   ngOnInit(): void {
+    // this.showSplashScreen();
     this.searchService.getLawyers().subscribe((lawyers) => {
       this.filteredLawyers = lawyers;
       // console.log('first', this.filteredLawyers);
@@ -33,6 +35,12 @@ export class ClientSearchPageComponent implements OnInit {
         cng.lawyerConsultationFee || 20000
       );
     });
+  }
+
+  showSplashScreen() {
+    setTimeout(() => {
+      this.hideMainScreen = false;
+    }, 2000);
   }
 
   filterLawyers(category: string, fees: number) {

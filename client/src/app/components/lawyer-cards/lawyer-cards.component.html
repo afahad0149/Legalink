@@ -1,3 +1,11 @@
-<div class="lawyer-cards-list" >
-  <app-lawyer-card class="card-width" *ngFor="let lawyer of lawyers" [lawyer]="lawyer"></app-lawyer-card>
+<div class="lawyer-cards-list">
+  <div *ngIf="!lawyers.length" class="empty-search">
+    <h3>No Result Found</h3>
+    <img src="../../../assets/empty-graphic.svg" />
+  </div>
+  <app-lawyer-card
+    class="card-width"
+    *ngFor="let lawyer of lawyers"
+    [lawyer]="lawyer"
+  ></app-lawyer-card>
 </div>

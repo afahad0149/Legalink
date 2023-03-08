@@ -12,6 +12,9 @@ $bronze: #a18e7b;
 $chocolate: #5b462d;
 $dark-chocolate: #3d280f;
 
+.splashScreen {
+  z-index: 2;
+}
 .search-page-container {
   height: 93%;
   display: flex;
@@ -46,7 +49,7 @@ $dark-chocolate: #3d280f;
       width: 100%;
       span {
         width: 5%;
-        color: rgb(181 177 177);;
+        color: rgb(181 177 177);
       }
       app-slider {
         display: inline-block;
