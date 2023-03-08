@@ -6,5 +6,19 @@
       alt="Legalink logo"
     />
   </a>
-  <a class="login-button" mat-flat-button routerLink="/login">Login</a>
+  <a
+    *ngIf="!isLoggedIn"
+    class="login-button"
+    mat-flat-button
+    routerLink="/login"
+    >Login</a
+  >
+  <button
+    (click)="handleLogout()"
+    *ngIf="isLoggedIn"
+    class="login-button"
+    mat-flat-button
+  >
+    Logout
+  </button>
 </div>

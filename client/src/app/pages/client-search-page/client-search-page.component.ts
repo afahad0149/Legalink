@@ -20,14 +20,14 @@ export class ClientSearchPageComponent implements OnInit {
   ngOnInit(): void {
     this.searchService.getLawyers().subscribe((lawyers) => {
       this.filteredLawyers = lawyers;
-      console.log('first', this.filteredLawyers);
+      // console.log('first', this.filteredLawyers);
       this.lawyers = lawyers.sort(
         ({ consultationFee: a }, { consultationFee: b }) => a - b
       );
       // console.log(this.lawyers);
     });
     this.searchForm.valueChanges.subscribe((cng) => {
-      console.log('category', cng.lawyerServiceCategory);
+      // console.log('category', cng.lawyerServiceCategory);
       this.filterLawyers(
         cng.lawyerServiceCategory || 'All Areas',
         cng.lawyerConsultationFee || 20000

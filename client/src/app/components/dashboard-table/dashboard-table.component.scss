@@ -46,6 +46,11 @@ td {
   border-bottom: solid 1px #dfe0eb;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+}
+
 tr:hover {
   background-color: #dfe0eb;
 }

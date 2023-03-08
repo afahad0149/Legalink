@@ -9,7 +9,7 @@ import { LawyerDashboardService } from 'src/app/services/lawyerDashboard/lawyer-
 })
 export class LawyerDashboardPageComponent {
   tickets: Ticket[] = [];
-  filteredTickets: Ticket[] = [];
+  ticketsToShow: Ticket[] = [];
   showPending: boolean = true;
   showActive: boolean = false;
   showArchieved: boolean = false;
@@ -23,12 +23,13 @@ export class LawyerDashboardPageComponent {
   loadData(): void {
     this.lawyerDashboardService.getTickets().subscribe((tickets) => {
       // get all tickets for the lawyer currently logged in
-      const lawyerId = JSON.parse(localStorage.getItem('user') || '""').body
-        .lawyerInfo._id;
+      // const lawyerId = JSON.parse(localStorage.getItem('user') || '""').body
+      //   .lawyerInfo._id;
       // console.log(lawyerId);
-      this.tickets = tickets.filter((ticket) => ticket.lawyerId === lawyerId);
+      this.tickets = tickets;
+
       // filter tickets by the pending state
-      this.filteredTickets = this.getFilteredTickets('pending');
+      this.ticketsToShow = this.getFilteredTickets('pending');
     });
   }
 
@@ -46,23 +47,24 @@ export class LawyerDashboardPageComponent {
       this.showActive = false;
       this.showArchieved = true;
     }
-    this.filteredTickets = this.tickets.filter((ticket) => {
+    this.ticketsToShow = this.tickets.filter((ticket) => {
       return ticket.state === state;
     });
     // console.log(this.filteredTickets);
-    this.filteredTickets = this.filteredTickets.sort(
+    this.ticketsToShow = this.ticketsToShow.sort(
       ({ createdAt: a }, { createdAt: b }) => {
         if (b && a) return a - b;
         else return 0;
       }
     );
 
-    this.filteredTickets = this.updateTimestamps();
+    this.ticketsToShow = this.updateTimestamps();
 
-    return this.filteredTickets;
+    return this.ticketsToShow;
   }
+
   updateTimestamps() {
-    return this.filteredTickets.map((tic) => {
+    return this.ticketsToShow.map((tic) => {
       const createdAt = tic['createdAt'] || Date.now();
       let date: string | Date = new Date(createdAt);
       date = date.toDateString();
@@ -70,10 +72,10 @@ export class LawyerDashboardPageComponent {
       return { ...tic, date: date };
     });
   }
-  updateFilteredTickets(tickets: Ticket[]) {
-    this.filteredTickets = tickets;
+  updateTickets(ticket: Ticket) {
+    this.loadData();
   }
-  deleteTicket(tickets: Ticket[]) {
-    this.filteredTickets = tickets;
-  }
+  // deleteTicket(tickets: Ticket[]) {
+  //   this.filteredTickets = tickets;
+  // }
 }

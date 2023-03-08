@@ -1,7 +1,8 @@
 const { Ticket } = require('../models/ticket');
 const getTickets = async (req, res) => {
   try {
-    const tickets = await Ticket.find({});
+    const lawyerId = req.params.id;
+    const tickets = await Ticket.find({ lawyerId });
     res.status(200).send(tickets);
   } catch (err) {
     res.status(400).send({ err });

@@ -46,12 +46,21 @@ export class DialogueBoxComponent {
       const clientName = `${clientFirstName} ${clientLastName}`;
       const lawyerId = this.data.id;
       this.ticketService
-        .postTicket(clientId, clientName, clientEmail, lawyerId, title, description)
+        .postTicket(
+          clientId,
+          clientName,
+          clientEmail,
+          lawyerId,
+          title,
+          description
+        )
         .subscribe({
           next: (ticket) => {
+            this.dialogForm.reset();
             this.successMessage = 'Ticket is successfully created';
           },
           error: (err) => {
+            this.dialogForm.reset();
             this.errorMessage =
               'You have a pending request for this lawyer. Please wait until it is accepted/rejected before sending a new request';
           },

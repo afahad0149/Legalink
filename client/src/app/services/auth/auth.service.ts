@@ -46,7 +46,7 @@ export class AuthService {
       consultationFee,
       almaMater,
       bio,
-      profilePicUrl
+      profilePicUrl,
     });
   }
 
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   isLoggedIn() {
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('user');
     return token ? true : false;
   }
 }

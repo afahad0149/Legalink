@@ -6,7 +6,7 @@ const {
 const authMiddleware = require('../middleware/auth');
 const router = require('express').Router();
 
-router.get('/lawyerDashboard', authMiddleware, getTickets);
+router.get('/lawyerDashboard/:id', authMiddleware, getTickets);
 router.put('/lawyerDashboard/activate/:id', authMiddleware, activateTicket);
 router.delete('/lawyerDashboard/delete/:id', authMiddleware, deleteTicket);
 

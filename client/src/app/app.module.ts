@@ -34,6 +34,7 @@ import { DialogueBoxComponent } from './components/dialogue-box/dialogue-box.com
 import { DashboardTableComponent } from './components/dashboard-table/dashboard-table.component';
 import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ViewTicketModalComponent } from './components/view-ticket-modal/view-ticket-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     DashboardTableComponent,
     SplashScreenComponent,
     SpinnerComponent,
+    ViewTicketModalComponent,
   ],
   imports: [
     BrowserModule,

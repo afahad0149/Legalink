@@ -16,7 +16,12 @@
     <tbody>
       <tr *ngFor="let ticket of tickets">
         <td>{{ ticket.date }}</td>
-        <td>{{ ticket.title }}</td>
+        <td class="center">
+          <span> {{ ticket.title }}</span
+          ><button mat-icon-button (click)="openDialog(ticket)">
+            <mat-icon>open_in_new</mat-icon>
+          </button>
+        </td>
         <td>{{ ticket.clientName }}</td>
         <td>{{ ticket.clientEmail }}</td>
         <td>{{ ticket.state }}</td>

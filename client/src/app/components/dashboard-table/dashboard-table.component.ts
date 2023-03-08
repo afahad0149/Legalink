@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Ticket } from 'src/app/models/ticket.model';
 import { LawyerDashboardService } from 'src/app/services/lawyerDashboard/lawyer-dashboard.service';
+import { ViewTicketModalComponent } from '../view-ticket-modal/view-ticket-modal.component';
 
 @Component({
   selector: 'app-dashboard-table',
@@ -10,10 +12,13 @@ import { LawyerDashboardService } from 'src/app/services/lawyerDashboard/lawyer-
 export class DashboardTableComponent {
   @Input() tickets: Ticket[] = [];
   @Input() isPending: boolean = true;
-  @Output() updateFilteredTicketsEvent = new EventEmitter();
-  @Output() deleteTicketEvent = new EventEmitter();
+  @Output() updateTicketsEvent = new EventEmitter();
 
-  constructor(private lawyerDashboardService: LawyerDashboardService) {}
+
+  constructor(
+    private lawyerDashboardService: LawyerDashboardService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,24 +27,23 @@ export class DashboardTableComponent {
     if (ticket) {
       ticket['state'] = 'active';
       this.lawyerDashboardService.activateTicket(ticket).subscribe((ticket) => {
-        this.updateTicketsLocally(ticket);
-        this.updateFilteredTicketsEvent.emit(this.tickets);
+        
+        this.updateTicketsEvent.emit(ticket);
       });
     }
   }
   handleDelete(id: string) {
     this.lawyerDashboardService.deleteTicket(id).subscribe((ticket) => {
-      this.deleteTicketsLocally(id);
-      this.deleteTicketEvent.emit(this.tickets);
+      // this.deleteTicketsLocally(id);
+      this.updateTicketsEvent.emit(ticket);
     });
   }
 
-  updateTicketsLocally(ticket: Ticket) {
-    const ticketIndex = this.tickets.findIndex((tic) => tic._id === ticket._id);
-    this.tickets[ticketIndex] = ticket;
-  }
 
-  deleteTicketsLocally(id: string) {
-    this.tickets = this.tickets.filter((tic) => tic._id !== id);
+  openDialog(ticket: Ticket) {
+    console.log(ticket);
+    const dialogRef = this.dialog.open(ViewTicketModalComponent, {
+      data: { ticket: ticket },
+    });
   }
 }

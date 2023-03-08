@@ -19,8 +19,10 @@ export class LawyerDashboardService {
         Authorization: `Bearer ${parsedToken.body.token}`,
       },
     };
+    const lawyerId = parsedToken.body.lawyerInfo._id;
+    // console.log(lawyerId);
     return this.http.get<Ticket[]>(
-      this.rootUrl + '/lawyerDashboard',
+      this.rootUrl + `/lawyerDashboard/${lawyerId}`,
       httpOptions
     );
   }
@@ -55,5 +57,4 @@ export class LawyerDashboardService {
       httpOptions
     );
   }
-  
 }

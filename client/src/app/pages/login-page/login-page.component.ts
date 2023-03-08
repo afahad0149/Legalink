@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -37,10 +38,10 @@ export class LoginPageComponent implements OnInit {
           const user = res.body;
           if (user && user.userType === 'client') {
             this.router.navigate(['client-search']);
-            console.log('user', user.userType);
+            // console.log('user', user.userType);
           } else if (user && user.userType === 'lawyer') {
             this.router.navigate(['lawyer-dashboard']);
-            console.log('user', user.userType);
+            // console.log('user', user.userType);
           } else this.router.navigate(['admin-dashboard']);
         },
         error: (err) => {
