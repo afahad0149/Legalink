@@ -1,6 +1,6 @@
 <div class="lawyer-dashboard-page-container">
   <div class="state-change-container">
-    <h2>States</h2>
+    <h2 class="state-title">States</h2>
     <button
       class="pending-btn"
       [ngClass]="{ 'btn-focus': showPending }"
@@ -27,11 +27,13 @@
     </button> -->
   </div>
   <div class="dashboard-container">
-    <h2>Dashboard</h2>
+    <h2 class="dashboard-title">Dashboard</h2>
     <div class="dashboard-table-container">
       <app-dashboard-table
         [tickets]="filteredTickets"
         [isPending]="showPending"
+        (updateFilteredTicketsEvent)="updateFilteredTickets($event)"
+        (deleteTicketEvent)="deleteTicket($event)"
       ></app-dashboard-table>
     </div>
   </div>

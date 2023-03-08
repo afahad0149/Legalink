@@ -17,6 +17,10 @@ export class LawyerDashboardPageComponent {
   constructor(private lawyerDashboardService: LawyerDashboardService) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
     this.lawyerDashboardService.getTickets().subscribe((tickets) => {
       // get all tickets for the lawyer currently logged in
       const lawyerId = JSON.parse(localStorage.getItem('user') || '""').body
@@ -65,5 +69,11 @@ export class LawyerDashboardPageComponent {
       // console.log('new-tic', { ...tic, date: date });
       return { ...tic, date: date };
     });
+  }
+  updateFilteredTickets(tickets: Ticket[]) {
+    this.filteredTickets = tickets;
+  }
+  deleteTicket(tickets: Ticket[]) {
+    this.filteredTickets = tickets;
   }
 }

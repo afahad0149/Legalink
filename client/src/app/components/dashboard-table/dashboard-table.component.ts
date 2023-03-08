@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket.model';
 import { LawyerDashboardService } from 'src/app/services/lawyerDashboard/lawyer-dashboard.service';
 
@@ -10,11 +10,12 @@ import { LawyerDashboardService } from 'src/app/services/lawyerDashboard/lawyer-
 export class DashboardTableComponent {
   @Input() tickets: Ticket[] = [];
   @Input() isPending: boolean = true;
+  @Output() updateFilteredTicketsEvent = new EventEmitter();
+  @Output() deleteTicketEvent = new EventEmitter();
 
   constructor(private lawyerDashboardService: LawyerDashboardService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleAccept(id: string) {
     const ticket = this.tickets.find((tic) => tic._id === id);
@@ -22,12 +23,14 @@ export class DashboardTableComponent {
       ticket['state'] = 'active';
       this.lawyerDashboardService.activateTicket(ticket).subscribe((ticket) => {
         this.updateTicketsLocally(ticket);
+        this.updateFilteredTicketsEvent.emit(this.tickets);
       });
     }
   }
   handleDelete(id: string) {
     this.lawyerDashboardService.deleteTicket(id).subscribe((ticket) => {
       this.deleteTicketsLocally(id);
+      this.deleteTicketEvent.emit(this.tickets);
     });
   }
 

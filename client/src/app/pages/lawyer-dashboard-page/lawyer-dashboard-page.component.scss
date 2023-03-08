@@ -13,14 +13,21 @@ $chocolate: #5b462d;
 $dark-chocolate: #3d280f;
 
 .lawyer-dashboard-page-container {
-  height: 93%;
+  height: 97.7%;
   display: flex;
   .state-change-container {
     width: 24%;
     height: 100%;
     background-color: $dark-chocolate;
-    padding-top: 3%;
+    padding-top: 1%;
     padding-bottom: 0;
+
+    .state-title {
+      color: $bone;
+      text-align: center;
+      margin-bottom: 10%;
+    }
+
     .pending-btn,
     .active-btn,
     .archieved-btn {
@@ -38,10 +45,18 @@ $dark-chocolate: #3d280f;
       background-color: $chocolate;
     }
   }
-  .dashboard-table-container {
-    margin-top: 2%;
-    width: 80%;
-    height: 80vh;
-    background-color: lightgray;
+  .dashboard-container {
+    width: 70%;
+    padding: 1% 5%;
+    .dashboard-title {
+      color: $dark-chocolate;
+    }
+    .dashboard-table-container {
+      margin-top: 2%;
+      width: 90%;
+      height: 70vh;
+      background-color: white;
+      overflow: auto;
+    }
   }
 }

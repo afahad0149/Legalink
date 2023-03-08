@@ -1,17 +1,36 @@
 <div *ngIf="lawyer" class="lawyer-profile-container">
   <div class="image-container">
-    <h1>{{ lawyer.firstName + ' ' + lawyer.lastName }}</h1>
-    <h2>{{ lawyer.serviceCategory + ' Lawyer' }}</h2>
+    <h1 class="name">{{ lawyer.firstName + ' ' + lawyer.lastName }}</h1>
+    <h2 class="category">{{ lawyer.serviceCategory + ' Lawyer' }}</h2>
     <img [src]="lawyer.profilePicUrl" />
   </div>
-  <div class="profile-details">
-    <h3>Consultation fee per session: {{ lawyer.consultationFee }}</h3>
-    <h3>Email: {{ lawyer.email }}</h3>
-    <h3>Phone: {{ lawyer.phone }}</h3>
-    <h3>Institution of legal education: {{ lawyer.almaMater }}</h3>
-    <h3>Bio</h3>
-    <p>{{ lawyer.bio }}</p>
-    <button mat-flat-button (click)="openDialog()">Request for service</button>
-    <a mat-flat-button routerLink="/client-search">Back</a>
+  <div class="profile-details-container">
+    <div class="profile-details">
+      <div>
+        <h3>Consultation fee per session:</h3>
+        <span>BDT {{ lawyer.consultationFee }}</span>
+      </div>
+      <div>
+        <h3>Email:</h3>
+        <span>{{ lawyer.email }}</span>
+      </div>
+      <div>
+        <h3>Phone:</h3>
+        <span>{{ lawyer.phone }}</span>
+      </div>
+      <div>
+        <h3>Institution of legal education:</h3>
+        <span>{{ lawyer.almaMater }}</span>
+      </div>
+
+      <div><h3>Bio</h3></div>
+      <p>{{ lawyer.bio }}</p>
+      <div class="profile-button-container">
+        <button mat-flat-button (click)="openDialog()">
+          <span>Request for service</span> 
+        </button>
+        <a mat-flat-button routerLink="/client-search"><span>Back</span></a>
+      </div>
+    </div>
   </div>
 </div>
