@@ -13,6 +13,9 @@ export class DashboardTableComponent {
 
   constructor(private lawyerDashboardService: LawyerDashboardService) {}
 
+  ngOnInit(): void {
+  }
+
   handleAccept(id: string) {
     const ticket = this.tickets.find((tic) => tic._id === id);
     if (ticket) {

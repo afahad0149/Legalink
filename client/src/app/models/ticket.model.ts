@@ -8,4 +8,5 @@ export interface Ticket {
   description: string;
   state?: string;
   createdAt?: number;
+  date?: string;
 }

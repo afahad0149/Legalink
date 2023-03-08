@@ -33,13 +33,11 @@ export class LawyerDashboardPageComponent {
       this.showPending = true;
       this.showActive = false;
       this.showArchieved = false;
-    }
-    else if (state === 'active') {
+    } else if (state === 'active') {
       this.showPending = false;
       this.showActive = true;
       this.showArchieved = false;
-    }
-    else {
+    } else {
       this.showPending = false;
       this.showActive = false;
       this.showArchieved = true;
@@ -54,6 +52,18 @@ export class LawyerDashboardPageComponent {
         else return 0;
       }
     );
+
+    this.filteredTickets = this.updateTimestamps();
+
     return this.filteredTickets;
+  }
+  updateTimestamps() {
+    return this.filteredTickets.map((tic) => {
+      const createdAt = tic['createdAt'] || Date.now();
+      let date: string | Date = new Date(createdAt);
+      date = date.toDateString();
+      // console.log('new-tic', { ...tic, date: date });
+      return { ...tic, date: date };
+    });
   }
 }
