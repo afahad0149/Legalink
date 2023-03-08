@@ -32,6 +32,8 @@ import { LawyerCardComponent } from './components/lawyer-card/lawyer-card.compon
 import { LawyerProfileComponent } from './components/lawyer-profile/lawyer-profile.component';
 import { DialogueBoxComponent } from './components/dialogue-box/dialogue-box.component';
 import { DashboardTableComponent } from './components/dashboard-table/dashboard-table.component';
+import { SplashScreenComponent } from './components/splash-screen/splash-screen.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { DashboardTableComponent } from './components/dashboard-table/dashboard-
     LawyerProfileComponent,
     DialogueBoxComponent,
     DashboardTableComponent,
+    SplashScreenComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

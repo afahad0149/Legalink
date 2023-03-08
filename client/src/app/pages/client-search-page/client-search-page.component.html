@@ -11,14 +11,18 @@
         [form]="searchForm"
       ></app-category-autocomplete>
       <p class="fee-label">Consultation fees (BDT)</p>
-      <app-slider [form]="searchForm"></app-slider>
+      <div class="slider-container">
+        <span>0.5k</span>
+        <app-slider [form]="searchForm"></app-slider>
+        <span>20k</span>
+      </div>
     </form>
   </div>
   <div class="search-results-container">
     <h2 class="search-results-heading">Search Results</h2>
     <app-lawyer-cards
       class="lawyer-cards-container"
-      [lawyers]="filteredLawyers || lawyers"
+      [lawyers]="filteredLawyers"
     ></app-lawyer-cards>
   </div>
 </div>

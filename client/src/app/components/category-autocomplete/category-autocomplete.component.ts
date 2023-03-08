@@ -13,6 +13,7 @@ export class CategoryAutocompleteComponent implements OnInit {
 
   lawyerServiceCategory = new FormControl('');
   options: string[] = [
+    'All Areas',
     'Arbitration',
     'Business/Corporate',
     'Criminal Defense',
@@ -36,7 +37,7 @@ export class CategoryAutocompleteComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    console.log(filterValue);
+    // console.log(filterValue);
 
     return this.options.filter((option) =>
       option.toLowerCase().includes(filterValue)

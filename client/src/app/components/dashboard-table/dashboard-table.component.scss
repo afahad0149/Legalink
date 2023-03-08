@@ -1,0 +1,19 @@
+// color palette
+$raisin-black: #212020;
+$slate-gray: #646e80;
+$isabelline: #f4efeb;
+$bone: #f8efe0;
+$khaki: #c5a074;
+$bronze: #a18e7b;
+$chocolate: #5b462d;
+$dark-chocolate: #3d280f;
+
+.dashboard-table-container {
+  margin-top: 2%;
+  width: 80%;
+  background-color: $bronze;
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+}

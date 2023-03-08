@@ -1,35 +1,38 @@
-<table>
-  <thead>
-    <th>Date</th>
-    <th>Request Title</th>
-    <th>Client Name</th>
-    <th>Client Email</th>
-    <th>Status</th>
-    <th *ngIf="isPending">Controls</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let ticket of tickets">
-      <td>{{ ticket.createdAt }}</td>
-      <td>{{ ticket.title }}</td>
-      <td>{{ ticket.clientName }}</td>
-      <td>{{ ticket.clientEmail }}</td>
-      <td>{{ ticket.state }}</td>
-      <td *ngIf="isPending">
-        <button
-          mat-icon-button
-          aria-label="Example icon button with a vertical three dot icon"
-          (click)="handleAccept(ticket._id)"
-        >
-          ac
-        </button>
-        <button
-          mat-icon-button
-          aria-label="Example icon button with a vertical three dot icon"
-          (click)="handleDelete(ticket._id)"
-        >
-          dl
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+  <table>
+    <thead>
+      <th>Date</th>
+      <th>Request Title</th>
+      <th>Client Name</th>
+      <th>Client Email</th>
+      <th>Status</th>
+      <th *ngIf="isPending">Controls</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let ticket of tickets">
+        <td>{{ ticket.createdAt }}</td>
+        <td>{{ ticket.title }}</td>
+        <td>{{ ticket.clientName }}</td>
+        <td>{{ ticket.clientEmail }}</td>
+        <td>{{ ticket.state }}</td>
+        <td *ngIf="isPending">
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+            (click)="handleAccept(ticket._id)"
+          >
+            <mat-icon>check_circle</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            aria-label="Example icon button with a vertical three dot icon"
+            (click)="handleDelete(ticket._id)"
+          >
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

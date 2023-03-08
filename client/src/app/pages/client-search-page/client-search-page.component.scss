@@ -27,18 +27,32 @@ $dark-chocolate: #3d280f;
       text-align: center;
       color: $bone;
       font-weight: 400;
+      padding-bottom: 12%;
     }
-    .avail-container {
-      padding-top: 12%;
-      padding-left: 2%;
-      margin-bottom: 15%;
-      .avail-text {
-        color: $bone;
-      }
-    }
+    // .avail-container {
+    //   padding-top: 12%;
+    //   padding-left: 2%;
+    //   margin-bottom: 15%;
+    //   .avail-text {
+    //     color: $bone;
+    //   }
+    // }
     .fee-label {
       margin-bottom: 0;
+      margin-top: 12%;
       color: $bone;
+    }
+    .slider-container {
+      width: 100%;
+      span {
+        width: 5%;
+        color: rgb(181 177 177);;
+      }
+      app-slider {
+        display: inline-block;
+        width: 75%;
+        margin-right: 8%;
+      }
     }
   }
   .search-results-container {

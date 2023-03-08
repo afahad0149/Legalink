@@ -216,7 +216,7 @@ export class RegistrationPageComponent implements OnInit {
           .subscribe({
             next: () => {
               this.success = true;
-              this.lawyerRegisterForm.reset;
+              this.lawyerRegisterForm.reset();
               this.router.navigate(['login']);
             },
             error: (err) => {

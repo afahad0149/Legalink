@@ -25,5 +25,10 @@
       Archieved
     </button> -->
   </div>
-  <app-dashboard-table [tickets]="filteredTickets" [isPending]="showPending"></app-dashboard-table>
+  <div class="dashboard-table-container">
+    <app-dashboard-table
+      [tickets]="filteredTickets"
+      [isPending]="showPending"
+    ></app-dashboard-table>
+  </div>
 </div>

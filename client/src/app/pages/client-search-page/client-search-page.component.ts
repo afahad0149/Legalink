@@ -10,8 +10,8 @@ import { SearchService } from 'src/app/services/search/search.service';
 })
 export class ClientSearchPageComponent implements OnInit {
   searchForm = this.fb.group({
-    lawyerServiceCategory: new FormControl('', [Validators.required]),
-    lawyerConsultationFee: new FormControl(50000),
+    lawyerServiceCategory: new FormControl('All Areas', [Validators.required]),
+    lawyerConsultationFee: new FormControl(20000),
   });
   lawyers: Lawyer[] = [];
   filteredLawyers: Lawyer[] = [];
@@ -29,18 +29,21 @@ export class ClientSearchPageComponent implements OnInit {
     this.searchForm.valueChanges.subscribe((cng) => {
       console.log('category', cng.lawyerServiceCategory);
       this.filterLawyers(
-        cng.lawyerServiceCategory || '',
-        cng.lawyerConsultationFee || 50000
+        cng.lawyerServiceCategory || 'All Areas',
+        cng.lawyerConsultationFee || 20000
       );
     });
   }
 
   filterLawyers(category: string, fees: number) {
-    console.log('filter called');
-    if (!category) this.filteredLawyers = this.lawyers;
-    this.filteredLawyers = this.lawyers.filter(
-      (lawyer) =>
+    // console.log('filter called');
+
+    this.filteredLawyers = this.lawyers.filter((lawyer) => {
+      if (category === 'All Areas')
+        return true && lawyer.consultationFee <= fees;
+      return (
         lawyer.serviceCategory === category && lawyer.consultationFee <= fees
-    );
+      );
+    });
   }
 }
