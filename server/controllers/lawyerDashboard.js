@@ -1,3 +1,5 @@
+const { getMailOptions } = require('../mailing/mailOptions');
+const { transport } = require('../mailing/nodeMailer');
 const { Ticket } = require('../models/ticket');
 const getTickets = async (req, res) => {
   try {
@@ -17,6 +19,15 @@ const activateTicket = async (req, res) => {
     const ticket = await Ticket.findByIdAndUpdate(id, req.body, {
       new: true,
     });
+
+    transport(
+      getMailOptions(
+        req.body.clientEmail,
+        'Request for service accepted',
+        'Your request for service has been granted.'
+      )
+    );
+
     res.status(200).send(ticket);
   } catch (error) {
     console.log(error);

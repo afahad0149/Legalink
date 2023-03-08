@@ -27,6 +27,7 @@ export class DashboardTableComponent {
     if (ticket) {
       ticket['state'] = 'active';
       this.lawyerDashboardService.activateTicket(ticket).subscribe((ticket) => {
+        // send accept email
         
         this.updateTicketsEvent.emit(ticket);
       });
@@ -34,7 +35,8 @@ export class DashboardTableComponent {
   }
   handleDelete(id: string) {
     this.lawyerDashboardService.deleteTicket(id).subscribe((ticket) => {
-      // this.deleteTicketsLocally(id);
+      // send reject email
+
       this.updateTicketsEvent.emit(ticket);
     });
   }
