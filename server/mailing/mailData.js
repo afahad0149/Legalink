@@ -1,4 +1,4 @@
-const acceptEmail = `
+const acceptEmail = () => `
 <!doctype html>
 <html>
   <head>
@@ -406,3 +406,5 @@ const acceptEmail = `
 </html>
 
 `;
+
+modules.exports = { acceptEmail };

@@ -27,8 +27,8 @@ const activateTicket = async (req, res) => {
       getMailOptions(
         ticket.clientEmail,
         'Request for service accepted',
-        `Hello ${ticket.clientName},
-          Your request for service for ${lawyer.firstName} ${lawyer.lastName} has been granted. You will be contacted by them soon.`
+        `<p>Hello ${ticket.clientName},</p>
+          <p>Your request for service for ${lawyer.firstName} ${lawyer.lastName} has been granted. You will be contacted by them soon.</p>`
       )
     );
 
@@ -43,14 +43,15 @@ const deleteTicket = async (req, res) => {
   try {
     const id = req.params.id;
     const ticket = await Ticket.findByIdAndDelete(id);
+    console.log('lawyerID', req.body.lawyerId);
     const lawyer = await Lawyer.findById(req.body.lawyerId);
 
     transport(
       getMailOptions(
         ticket.clientEmail,
         'Request for service rejected',
-        `Hello ${ticket.clientName},
-          Sorry to inform that your request for service for ${lawyer.firstName} ${lawyer.lastName} has been rejected. You can contact them at ${lawyer.email}.`
+        `<p>Hello ${ticket.clientName},</p>
+          <p>Sorry to inform that your request for service for ${lawyer.firstName} ${lawyer.lastName} has been rejected. You can contact them at ${lawyer.email}.</p>`
       )
     );
     res.status(200).send(ticket);
