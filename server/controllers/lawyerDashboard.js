@@ -43,8 +43,8 @@ const deleteTicket = async (req, res) => {
   try {
     const id = req.params.id;
     const ticket = await Ticket.findByIdAndDelete(id);
-    console.log('lawyerID', req.body.lawyerId);
-    const lawyer = await Lawyer.findById(req.body.lawyerId);
+    // console.log('lawyerID', ticket.lawyerId);
+    const lawyer = await Lawyer.findById(ticket.lawyerId);
 
     transport(
       getMailOptions(
