@@ -13,6 +13,12 @@ $chocolate: #5b462d;
 $dark-chocolate: #3d280f;
 
 .dialog-container {
+  h2 {
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3%;
+  }
   background-color: $bone;
   mat-dialog-content {
     display: block;
@@ -21,6 +27,21 @@ $dark-chocolate: #3d280f;
     mat-form-field {
       display: block;
       width: 100%;
+    }
+    .button-container {
+      .submit-btn {
+        background-color: $chocolate;
+        color: white;
+        margin-right: 15px;
+      }
+      .close-btn {
+        background-color: $slate-gray;
+        color: white;
+      }
+    }
+    .msg {
+      margin-top: 5%;
+      font-size: 1.25em;
     }
   }
 }

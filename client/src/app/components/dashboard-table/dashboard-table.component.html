@@ -6,13 +6,8 @@
       <th>Client Name</th>
       <th>Client Email</th>
       <th>Status</th>
-      <th *ngIf="isPending">Controls</th>
+      <th *ngIf="!isArchived">Controls</th>
     </thead>
-  </table>
-</div>
-
-<div class="tbl-content" cellpadding="0" cellspacing="0">
-  <table>
     <tbody>
       <tr *ngFor="let ticket of tickets">
         <td>{{ ticket.date }}</td>
@@ -26,19 +21,19 @@
         <td>{{ ticket.clientEmail }}</td>
         <td>{{ ticket.state }}</td>
         <td *ngIf="isPending">
-          <button
-            mat-icon-button
-            aria-label="Example icon button with a vertical three dot icon"
-            (click)="handleAccept(ticket._id)"
-          >
+          <button mat-icon-button (click)="handleUpdate(ticket._id, 'active')">
             <mat-icon>check_circle</mat-icon>
           </button>
+          <button mat-icon-button (click)="handleDelete(ticket._id)">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </td>
+        <td *ngIf="isActive">
           <button
             mat-icon-button
-            aria-label="Example icon button with a vertical three dot icon"
-            (click)="handleDelete(ticket._id)"
+            (click)="handleUpdate(ticket._id, 'archived')"
           >
-            <mat-icon>cancel</mat-icon>
+            <mat-icon>inventory</mat-icon>
           </button>
         </td>
       </tr>

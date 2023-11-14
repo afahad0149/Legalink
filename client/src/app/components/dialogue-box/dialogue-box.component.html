@@ -31,12 +31,14 @@
         >
       </mat-form-field>
     </form>
-    <button mat-flat-button (click)="handleSubmit()">Send Request</button>
-    <button mat-flat-button (click)="handleClose()">Close</button>
-    <div *ngIf="errorMessage.length" class="error-message">
+    <div class="button-container">
+      <button class="submit-btn" mat-flat-button (click)="handleSubmit()">Send Request</button>
+      <button class="close-btn" mat-flat-button (click)="handleClose()">Close</button>
+    </div>
+    <div *ngIf="errorMessage.length" class="error-message msg">
       {{ errorMessage }}
     </div>
-    <div *ngIf="successMessage.length" class="success-message">
+    <div *ngIf="successMessage.length" class="success-message msg">
       {{ successMessage }}
     </div>
   </mat-dialog-content>

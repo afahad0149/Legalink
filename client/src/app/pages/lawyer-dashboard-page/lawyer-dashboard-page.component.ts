@@ -12,7 +12,7 @@ export class LawyerDashboardPageComponent {
   ticketsToShow: Ticket[] = [];
   showPending: boolean = true;
   showActive: boolean = false;
-  showArchieved: boolean = false;
+  showArchived: boolean = false;
 
   constructor(private lawyerDashboardService: LawyerDashboardService) {}
 
@@ -37,15 +37,15 @@ export class LawyerDashboardPageComponent {
     if (state === 'pending') {
       this.showPending = true;
       this.showActive = false;
-      this.showArchieved = false;
+      this.showArchived = false;
     } else if (state === 'active') {
       this.showPending = false;
       this.showActive = true;
-      this.showArchieved = false;
+      this.showArchived = false;
     } else {
       this.showPending = false;
       this.showActive = false;
-      this.showArchieved = true;
+      this.showArchived = true;
     }
     this.ticketsToShow = this.tickets.filter((ticket) => {
       return ticket.state === state;
@@ -75,7 +75,4 @@ export class LawyerDashboardPageComponent {
   updateTickets(ticket: Ticket) {
     this.loadData();
   }
-  // deleteTicket(tickets: Ticket[]) {
-  //   this.filteredTickets = tickets;
-  // }
 }

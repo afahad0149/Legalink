@@ -12,8 +12,9 @@ import { ViewTicketModalComponent } from '../view-ticket-modal/view-ticket-modal
 export class DashboardTableComponent {
   @Input() tickets: Ticket[] = [];
   @Input() isPending: boolean = true;
+  @Input() isActive: boolean = false;
+  @Input() isArchived: boolean = false;
   @Output() updateTicketsEvent = new EventEmitter();
-
 
   constructor(
     private lawyerDashboardService: LawyerDashboardService,
@@ -22,28 +23,28 @@ export class DashboardTableComponent {
 
   ngOnInit(): void {}
 
-  handleAccept(id: string) {
+  handleUpdate(id: string, state: string) {
     const ticket = this.tickets.find((tic) => tic._id === id);
     if (ticket) {
-      ticket['state'] = 'active';
-      this.lawyerDashboardService.activateTicket(ticket).subscribe((ticket) => {
-        // send accept email
-        
+      ticket['state'] = state;
+      this.lawyerDashboardService.updateTicket(ticket).subscribe((ticket) => {
         this.updateTicketsEvent.emit(ticket);
       });
     }
   }
-  handleDelete(id: string) {
-    this.lawyerDashboardService.deleteTicket(id).subscribe((ticket) => {
-      // send reject email
 
-      this.updateTicketsEvent.emit(ticket);
-    });
+  handleDelete(id: string) {
+    const ticket = this.tickets.find((tic) => tic._id === id);
+    if (ticket) {
+      this.lawyerDashboardService.deleteTicket(ticket).subscribe((ticket) => {
+        // console.log(ticket);
+        this.updateTicketsEvent.emit(ticket);
+      });
+    }
   }
 
-
   openDialog(ticket: Ticket) {
-    console.log(ticket);
+    // console.log(ticket);
     const dialogRef = this.dialog.open(ViewTicketModalComponent, {
       data: { ticket: ticket },
     });

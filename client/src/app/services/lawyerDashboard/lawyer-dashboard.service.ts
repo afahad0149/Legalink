@@ -27,7 +27,7 @@ export class LawyerDashboardService {
     );
   }
 
-  activateTicket(ticket: Ticket): Observable<Ticket> {
+  updateTicket(ticket: Ticket): Observable<Ticket> {
     const token = localStorage.getItem('user')!;
     const parsedToken = JSON.parse(token);
     const httpOptions = {
@@ -43,7 +43,7 @@ export class LawyerDashboardService {
     );
   }
 
-  deleteTicket(id: string): Observable<Ticket> {
+  deleteTicket(ticket: Ticket): Observable<Ticket> {
     const token = localStorage.getItem('user')!;
     const parsedToken = JSON.parse(token);
     const httpOptions = {
@@ -53,7 +53,7 @@ export class LawyerDashboardService {
       },
     };
     return this.http.delete<Ticket>(
-      this.rootUrl + `/lawyerDashboard/delete/${id}`,
+      this.rootUrl + `/lawyerDashboard/delete/${ticket._id}`,
       httpOptions
     );
   }
