@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'lawyer-dashboard', component: LawyerDashboardPageComponent },
   { path: 'admin-dashboard', component: AdminDashboardPageComponent },
   { path: 'lawyer/:id', component: LawyerProfileComponent },
+  { path: '**', component: LandingPageComponent },
 ];
 
 @NgModule({

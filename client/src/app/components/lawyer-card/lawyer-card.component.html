@@ -6,8 +6,10 @@
           lawyer.firstName + ' ' + lawyer.lastName
         }}</mat-card-title>
         <mat-card-subtitle>
+          <div class="info">
           <div >{{ lawyer.serviceCategory + ' Lawyer' }}</div>
           <div>{{ 'Consultation Fees: ৳' + lawyer.consultationFee }}</div>
+          </div>
           <button mat-flat-button (click)="visitLawyer(lawyer._id)">
             Visit Profile
           </button>

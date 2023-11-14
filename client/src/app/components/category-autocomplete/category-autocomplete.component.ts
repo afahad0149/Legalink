@@ -17,7 +17,7 @@ export class CategoryAutocompleteComponent implements OnInit {
     'Arbitration',
     'Business/Corporate',
     'Criminal Defense',
-    'Employment and Labour',
+    'Employment',
     'Enviroment',
     'Estate Planning',
     'Family and Divorce',

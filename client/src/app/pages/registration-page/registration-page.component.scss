@@ -97,6 +97,7 @@ $dark-chocolate: #3d280f;
         }
       }
       .button-container {
+        width: 100%;
         .submit-btn {
           font-size: 0.89em;
           margin-right: 10px;
@@ -116,4 +117,13 @@ $dark-chocolate: #3d280f;
   margin-top: 5%;
   text-align: center;
   border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: $chocolate;
+  color: white;
+}
+.back-btn {
+  background-color: $slate-gray;
+  color: white;
 }

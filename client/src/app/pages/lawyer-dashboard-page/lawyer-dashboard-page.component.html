@@ -7,7 +7,7 @@
       mat-flat-button
       (click)="getFilteredTickets('pending')"
     >
-      Pending
+      Pending 
     </button>
     <button
       class="active-btn"
@@ -17,14 +17,14 @@
     >
       Active
     </button>
-    <!-- <button
+    <button
       class="archieved-btn"
-      [ngClass]="{ 'btn-focus': showArchieved }"
+      [ngClass]="{ 'btn-focus': showArchived }"
       mat-flat-button
-      (click)="getFilteredTickets('archieved')"
+      (click)="getFilteredTickets('archived')"
     >
       Archieved
-    </button> -->
+    </button>
   </div>
   <div class="dashboard-container">
     <h2 class="dashboard-title">Dashboard</h2>
@@ -32,6 +32,8 @@
       <app-dashboard-table
         [tickets]="ticketsToShow"
         [isPending]="showPending"
+        [isActive]="showActive"
+        [isArchived]="showArchived"
         (updateTicketsEvent)="updateTickets($event)"
       ></app-dashboard-table>
     </div>
