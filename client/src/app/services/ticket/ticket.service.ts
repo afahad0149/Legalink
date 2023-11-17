@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ticket } from 'src/app/models/ticket.model';
+import { baseBackendURL } from 'src/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TicketService {
-  rootUrl = 'http://localhost:3000';
+  rootUrl = baseBackendURL;
 
   constructor(private http: HttpClient) {}
 

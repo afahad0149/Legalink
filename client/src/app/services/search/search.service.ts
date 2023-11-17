@@ -2,12 +2,13 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Lawyer } from 'src/app/models/lawyer.model';
+import { baseBackendURL } from 'src/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
-  rootUrl = 'http://localhost:3000';
+  rootUrl = baseBackendURL;
   constructor(private http: HttpClient) {}
 
   getLawyers(): Observable<Lawyer[]> {

@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
+import { baseBackendURL } from 'src/config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  rootUrl = 'http://localhost:3000';
+  rootUrl = baseBackendURL;
 
   constructor(private http: HttpClient, private router: Router) {}
 
