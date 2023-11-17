@@ -17,7 +17,7 @@ const URI = process.env.MONGOOSE_URI;
 const app = express();
 
 const corsConfig = {
-  origin: 'https://legalink.vercel.app/',
+  origin: 'https://legalink.vercel.app',
   credentials: true,
   exposedHeaders: ['Authorization'],
 };
