@@ -9,14 +9,17 @@ const searchRouter = require('./routers/client-search');
 const lawyerDashboardRouter = require('./routers/lawyerDashboard');
 
 // env variables
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+
 const PORT = process.env.PORT;
 const URI = process.env.MONGOOSE_URI;
 
 const app = express();
 
 const corsConfig = {
-  origin: 'http://localhost:4200',
+  origin: 'https://legalink.vercel.app/',
   credentials: true,
   exposedHeaders: ['Authorization'],
 };
