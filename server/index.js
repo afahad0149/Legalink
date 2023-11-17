@@ -9,9 +9,7 @@ const searchRouter = require('./routers/client-search');
 const lawyerDashboardRouter = require('./routers/lawyerDashboard');
 
 // env variables
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 const URI = process.env.MONGOOSE_URI;
